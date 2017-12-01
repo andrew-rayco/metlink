@@ -4,11 +4,9 @@ import { Link } from 'react-router-dom'
 function Header (props) {
   return (
     <div className="header">
-      <h1>This is the header</h1>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/test">Test</Link></li>
-      </ul>
+      <h1>Sexy Metlink App</h1>
+      <button><Link to="/">Going to town</Link></button>
+        <button><Link to="/test">Going home</Link></button>
     </div>
   )
 }
