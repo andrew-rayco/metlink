@@ -7,16 +7,16 @@ import {
 import ReactDOM from 'react-dom'
 
 import Header from './Header'
-import Home from './Home'
-import OtherPage from './OtherPage'
+import ToTown from './ToTown'
+import GoingHome from './GoingHome'
 
 function App (props) {
   return (
     <Router>
       <div className="container">
         <Header />
-        <Route exact path="/" component={Home} />
-        <Route path="/test" component={OtherPage} />
+        <Route exact path="/" component={ToTown} />
+        <Route path="/test" component={GoingHome} />
       </div>
     </Router>
   )
