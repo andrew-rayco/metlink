@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import request from 'superagent'
 
+import * as api from '../api'
 import ShowTimes from './ShowTimes'
 
 class ToTown extends React.Component {
@@ -13,15 +14,10 @@ class ToTown extends React.Component {
   }
 
   componentWillMount() {
-    request
-      .get('/test')
-      .end((err, result) => {
-        if (err) {
-          result.send('oh no! Error:', err)
-        } else {
-          this.setState({ data: result.body })
-        }
-      })
+    api.getToTownData((toTownData) => {
+      console.log(toTownData)
+      this.setState({ data: toTownData })
+    })
   }
 
   render() {
