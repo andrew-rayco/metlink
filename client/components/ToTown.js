@@ -15,7 +15,6 @@ class ToTown extends React.Component {
 
   componentWillMount() {
     api.getToTownData((toTownData) => {
-      console.log(toTownData)
       this.setState({ data: toTownData })
     })
   }
