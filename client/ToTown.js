@@ -12,12 +12,12 @@ class ToTown extends React.Component {
 
   componentWillMount() {
     request
-      .get('http://ergast.com/api/f1/drivers.json')
+      .get('/test')
       .end((err, result) => {
         if (err) {
           result.send('oh no! Error:', err)
         } else {
-          this.setState({ data: result.body.MRData.DriverTable })
+          this.setState({ data: result.body })
         }
       })
 
@@ -28,7 +28,7 @@ class ToTown extends React.Component {
       <div className="to-town">
         <button><Link to="/test">I'm going home</Link></button>
         <h3>Going to Town</h3>
-        <p>{this.state.data ? this.state.data.Drivers[0].familyName : 'loading...'}</p>
+        <p>{this.state.data ? console.log(this.state.data) : 'loading...'}</p>
       </div>
     )
   }
