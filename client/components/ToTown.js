@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import request from 'superagent'
 
 import * as api from '../api'
 import ShowTimes from './ShowTimes'
@@ -22,8 +21,8 @@ class ToTown extends React.Component {
   render() {
     return (
       <div className="to-town">
-        <button><Link to="/test">I'm going home</Link></button>
-        <h3>Going to Town</h3>
+        <h2>Going to Town</h2>
+        <button><Link to="/going-home">Wait... I want to go home</Link></button>
         {this.state.data ? <ShowTimes data={this.state.data} /> : 'loading...'}
       </div>
     )

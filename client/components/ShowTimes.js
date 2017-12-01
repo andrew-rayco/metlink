@@ -67,17 +67,10 @@ class ShowTimes extends React.Component {
           <strong>Expected time: </strong>
           {moment(servicesArray[0].ExpectedDeparture).format('h:mm a')} and  {moment(servicesArray[0].ExpectedDeparture).format('ss')} seconds</p>
         <p className="expected">Expected in: {this.state.time.m} m and {this.state.time.s} seconds</p>
-        <p><strong>Next service: </strong> {moment(servicesArray[1].ExpectedDeparture).format('h:mm a')}</p>
+        <p><strong>Next service: </strong> {servicesArray[1] ? moment(servicesArray[1].ExpectedDeparture).format('h:mm a') : 'None expected yet'}</p>
       </div>
     )
   }
 }
-
-// function countDown(seconds) {
-//   let count = 0 - seconds
-//   let intervalId = setInterval(() => {
-//     count--
-//   }, 1000)
-// }
 
 export default ShowTimes
