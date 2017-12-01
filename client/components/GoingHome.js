@@ -28,7 +28,9 @@ class GoingHome extends React.Component {
       <div className="to-town">
         <h2>Going Home</h2>
         <button><Link to="/">Wait... I want to go into town</Link></button>
-        {this.state.data ? <ShowTimes data={this.state.data} /> : 'loading...'}
+        <div>
+          {this.state.data ? <ShowTimes data={this.state.data} /> : 'loading...'}
+        </div>
       </div>
     )
   }
