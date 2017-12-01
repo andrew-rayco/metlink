@@ -3,3 +3,8 @@
   margin: 0 auto;
   background: papayawhip;
 }
+
+.expected {
+  font-size: 200%;
+  background-color: lightgreen;
+}
