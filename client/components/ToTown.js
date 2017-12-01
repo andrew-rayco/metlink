@@ -14,7 +14,7 @@ class ToTown extends React.Component {
   }
 
   componentWillMount() {
-    api.getToTownData((toTownData) => {
+    api.getData('to-town', (toTownData) => {
       this.setState({ data: toTownData })
     })
   }
@@ -24,7 +24,7 @@ class ToTown extends React.Component {
       <div className="to-town">
         <button><Link to="/test">I'm going home</Link></button>
         <h3>Going to Town</h3>
-        {this.state.data ? <ShowTimes props={this.state.data} /> : 'loading...'}
+        {this.state.data ? <ShowTimes data={this.state.data} /> : 'loading...'}
       </div>
     )
   }
