@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import request from 'superagent'
 
+import ShowTimes from './ShowTimes'
+
 class ToTown extends React.Component {
   constructor(props) {
     super(props)
@@ -20,7 +22,6 @@ class ToTown extends React.Component {
           this.setState({ data: result.body })
         }
       })
-
   }
 
   render() {
@@ -28,7 +29,7 @@ class ToTown extends React.Component {
       <div className="to-town">
         <button><Link to="/test">I'm going home</Link></button>
         <h3>Going to Town</h3>
-        <p>{this.state.data ? console.log(this.state.data) : 'loading...'}</p>
+        {this.state.data ? <ShowTimes props={this.state.data} /> : 'loading...'}
       </div>
     )
   }
