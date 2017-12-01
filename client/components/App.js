@@ -16,7 +16,7 @@ function App (props) {
       <div className="container">
         <Header />
         <Route exact path="/" component={ToTown} />
-        <Route path="/test" component={GoingHome} />
+        <Route path="/going-home" component={GoingHome} />
       </div>
     </Router>
   )
