@@ -59,15 +59,23 @@ class ShowTimes extends React.Component {
     return (
       <div>
         {this.startTimer()}
-        <p><strong>Leaving from: </strong> {stop.Name}</p>
-        <p>
-          <strong>Last Modified: </strong>
-          <TimeAgo date={this.props.data.LastModified}/></p>
-        <p>
-          <strong>Expected time: </strong>
-          {moment(servicesArray[0].ExpectedDeparture).format('h:mm a')} and  {moment(servicesArray[0].ExpectedDeparture).format('ss')} seconds</p>
-        <p className="expected">Expected in: {this.state.time.m} m and {this.state.time.s} seconds</p>
-        <p><strong>Next service: </strong> {servicesArray[1] ? moment(servicesArray[1].ExpectedDeparture).format('h:mm a') : 'None expected yet'}</p>
+        <div className="service-details">
+          <p><strong>Leaving from: </strong> {stop.Name}</p>
+        </div>
+
+        <div className="expected">
+          <img src="/img/duration.svg" alt="clock icon"/>
+          <p><span><strong>{this.state.time.m}</strong> mins</span> <span><strong>{this.state.time.s}</strong> seconds</span></p>
+        </div>
+
+        <div className="service-details">
+          <p><strong>Last modified: </strong>
+            <TimeAgo date={this.props.data.LastModified}/></p>
+          <p><strong>Expected time: </strong>
+              {moment(servicesArray[0].ExpectedDeparture).format('h:mm a')} and  {moment(servicesArray[0].ExpectedDeparture).format('ss')} seconds</p>
+          <p><strong>Next service: </strong> {servicesArray[1] ? moment(servicesArray[1].ExpectedDeparture).format('h:mm a') : 'None expected yet'}</p>
+        </div>
+
       </div>
     )
   }
