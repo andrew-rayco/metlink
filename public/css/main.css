@@ -20,26 +20,32 @@ h2 {
 
 .container {
   max-width: 90vw;
-  margin: 0 auto;
-  padding: 5%; }
+  margin: 0 auto; }
 
 .expected {
   font-size: 200%;
   background-color: #c4db0d;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 0 .5em; }
   .expected img {
     margin-right: .5em; }
 
 @media (max-width: 500px) {
   .expected {
-    flex-direction: column; } }
+    flex-direction: column; }
+    .expected span {
+      display: block; }
+    .expected p {
+      margin: .5em; }
+    .expected img {
+      margin-right: 0;
+      margin-top: .5em; } }
 
 button {
   padding: 1em;
   border: 2px solid #00364a;
-  border-radius: 4px;
   font-size: 1em;
   color: #e5e5e5;
   background-color: #00364a; }
@@ -54,4 +60,4 @@ button {
       color: #00364a; }
 
 .service-details {
-  margin-top: 2em; }
+  margin: 2em 0; }
