@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 function Header (props) {
   return (
     <div className="header">
-      <h1>Sexy Metlink App</h1>
-      
+      <h1>Sexy Met<span>link</span> App</h1>
+
 
     </div>
   )

@@ -1,0 +1,65 @@
+
+$navyBlue: #00364a
+$headingColor: #006DB2
+$bodyFontColor: #333333
+$highlightColor: #c4db0d
+$backgroundColor: #e5e5e5
+$bodyFontStack: Roboto, Helvetica, Arial, sans-serif
+
+body
+  background-color: $backgroundColor
+  font-family: $bodyFontStack
+  color: $bodyFontColor
+  text-align: center
+
+h1
+  color: $backgroundColor
+  background: $navyBlue
+  font-size: 36px
+  text-align: center
+  padding: .3em
+
+  span
+    color: $highlightColor
+
+h2
+  color: $headingColor
+  text-align: center
+
+.container
+  max-width: 90vw
+  margin: 0 auto
+  padding: 5%
+
+.expected
+  font-size: 200%
+  background-color: $highlightColor
+  display: flex
+  align-items: center
+  padding: .5em
+
+  img
+    margin-right: .5em
+
+button
+  padding: 1em
+  border: 2px solid $navyBlue
+  border-radius: 4px
+  font-size: 1em
+  color: $backgroundColor
+  background-color: $navyBlue
+
+  a
+    color: $backgroundColor
+    font-weight: 600
+    text-decoration: none
+
+  &:hover
+    background-color: $highlightColor
+    border: 2px solid $highlightColor
+
+    a
+      color: $navyBlue
+
+.service-details
+  margin-top: 2em
