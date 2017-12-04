@@ -1,4 +1,6 @@
 body {
+  padding: 0;
+  margin: 0;
   background-color: #e5e5e5;
   font-family: Roboto, Helvetica, Arial, sans-serif;
   color: #333333;
@@ -6,11 +8,12 @@ body {
   font-size: 20px; }
 
 h1 {
+  margin-top: 0;
   color: #e5e5e5;
   background: #00364a;
   font-size: 36px;
   text-align: center;
-  padding: .3em; }
+  padding: 1em; }
   h1 span {
     color: #c4db0d; }
 
@@ -19,8 +22,9 @@ h2 {
   text-align: center; }
 
 .container {
-  max-width: 90vw;
-  margin: 0 auto; }
+  width: 100vw;
+  margin: 0 auto;
+  overflow: hidden; }
 
 .expected {
   font-size: 200%;
@@ -71,7 +75,7 @@ button {
     color: #00364a; }
 
 .service-details {
-  margin: 2em 0;
+  margin: 2em 2em;
   animation: slideup 1s ease-in, fadein 1s ease-in; }
 
 .departure-point {
@@ -82,3 +86,6 @@ button {
     margin-top: 10em; }
   100% {
     margin-top: 2em; } }
+
+.loading {
+  margin-top: 2em; }

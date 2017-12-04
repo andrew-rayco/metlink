@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 import * as api from '../api'
 import ShowTimes from './ShowTimes'
+import Loading from './Loading'
 
 class ToTown extends React.Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class ToTown extends React.Component {
         <h2>Going to Town</h2>
         <Link to="/going-home"><button>Wait... I want to go home</button></Link>
         <div>
-          {this.state.data ? <ShowTimes data={this.state.data} /> : 'loading...'}
+          {this.state.data ? <ShowTimes data={this.state.data} /> : <Loading />}
         </div>
       </div>
     )

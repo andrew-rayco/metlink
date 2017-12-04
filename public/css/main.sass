@@ -7,6 +7,8 @@ $backgroundColor: #e5e5e5
 $bodyFontStack: Roboto, Helvetica, Arial, sans-serif
 
 body
+  padding: 0
+  margin: 0
   background-color: $backgroundColor
   font-family: $bodyFontStack
   color: $bodyFontColor
@@ -14,11 +16,12 @@ body
   font-size: 20px
 
 h1
+  margin-top: 0
   color: $backgroundColor
   background: $navyBlue
   font-size: 36px
   text-align: center
-  padding: .3em
+  padding: 1em
 
   span
     color: $highlightColor
@@ -28,9 +31,9 @@ h2
   text-align: center
 
 .container
-  max-width: 90vw
+  width: 100vw
   margin: 0 auto
-  // padding: 5%
+  overflow: hidden
 
 .expected
   font-size: 200%
@@ -39,7 +42,6 @@ h2
   align-items: center
   justify-content: center
   padding: 0 .5em
-  // animation: fadein 3s
 
   img
     margin-right: .5em
@@ -91,7 +93,7 @@ button
     color: $navyBlue
 
 .service-details
-  margin: 2em 0
+  margin: 2em 2em
   animation: slideup 1s ease-in, fadein 1s ease-in
 
 .departure-point
@@ -102,3 +104,6 @@ button
     margin-top: 10em
   100%
     margin-top: 2em
+
+.loading
+  margin-top: 2em
