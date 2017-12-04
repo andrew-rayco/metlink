@@ -74,14 +74,14 @@ button {
   transition: background-color 0.4s, border 0.4s; }
   button a {
     color: #00364a; }
-    button a:hover {
-      background-color: #c4db0d;
-      border: 2px solid #c4db0d;
-      color: #00364a;
-      transition: background-color 0.4s, border 0.4s;
-      cursor: pointer; }
-      button a:hover:active {
-        border: 2px solid #00364a; }
+  button:hover {
+    background-color: #c4db0d;
+    border: 2px solid #c4db0d;
+    color: #00364a;
+    transition: background-color 0.4s, border 0.4s;
+    cursor: pointer; }
+    button:hover:active {
+      border: 2px solid #00364a; }
 
 @media (max-width: 500px) {
   h1 {
