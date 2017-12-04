@@ -1,6 +1,7 @@
 import React from 'react'
-import TimeAgo from 'react-timeago'
-import moment from 'moment'
+
+import CountDown from './CountDown'
+import ServiceDetails from './ServiceDetails'
 
 class ShowTimes extends React.Component {
   constructor(props) {
@@ -12,10 +13,6 @@ class ShowTimes extends React.Component {
     this.timer = 0
     this.startTimer = this.startTimer.bind(this)
     this.countDown = this.countDown.bind(this)
-  }
-
-  componentDidMount() {
-    console.log(this.props.data.Services[0].DisplayDepartureSeconds)
   }
 
   secondsToTime(secs) {
@@ -59,23 +56,16 @@ class ShowTimes extends React.Component {
     return (
       <div>
         {this.startTimer()}
-        <div className="service-details">
-          <p><strong>Leaving from: </strong> {stop.Name}</p>
+        <div className="service-details departure-point">
+          <h4>Leaving from</h4>
+          <p>{stop.Name}</p>
         </div>
-
-        <div className="expected">
-          <img src="/img/duration.svg" alt="clock icon"/>
-          <p><span><strong>{this.state.time.m}</strong> mins</span> <span><strong>{this.state.time.s}</strong> seconds</span></p>
-        </div>
-
-        <div className="service-details">
-          <p><strong>Last modified: </strong>
-            <TimeAgo date={this.props.data.LastModified}/></p>
-          <p><strong>Expected time: </strong>
-              {moment(servicesArray[0].ExpectedDeparture).format('h:mm a')} and  {moment(servicesArray[0].ExpectedDeparture).format('ss')} seconds</p>
-          <p><strong>Next service: </strong> {servicesArray[1] ? moment(servicesArray[1].ExpectedDeparture).format('h:mm a') : 'None expected yet'}</p>
-        </div>
-
+        <CountDown min={this.state.time.m} sec={this.state.time.s} />
+        <ServiceDetails
+          date={this.props.data.LastModified}
+          nextService={servicesArray[0]}
+          followingService={servicesArray[1]}
+        />
       </div>
     )
   }

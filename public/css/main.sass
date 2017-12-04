@@ -7,6 +7,8 @@ $backgroundColor: #e5e5e5
 $bodyFontStack: Roboto, Helvetica, Arial, sans-serif
 
 body
+  padding: 0
+  margin: 0
   background-color: $backgroundColor
   font-family: $bodyFontStack
   color: $bodyFontColor
@@ -14,23 +16,33 @@ body
   font-size: 20px
 
 h1
+  margin-top: 0
   color: $backgroundColor
   background: $navyBlue
-  font-size: 36px
+  font-size: 42px
   text-align: center
-  padding: .3em
+  padding: 1em
 
   span
     color: $highlightColor
 
 h2
+  font-size: 36px
+  margin-top: 1.5em
+  margin-bottom: 1em
   color: $headingColor
   text-align: center
 
+h4
+  margin-bottom: 0.1em
+  color: $headingColor
+
 .container
-  max-width: 90vw
+  width: 100vw
+  min-height: 100vh
+  max-width: 100%
   margin: 0 auto
-  // padding: 5%
+  overflow: hidden
 
 .expected
   font-size: 200%
@@ -42,8 +54,28 @@ h2
 
   img
     margin-right: .5em
+    animation: fadein 1s ease-in
+
+  p
+    animation: fadein 1s ease-in
+
+@keyframes fadein
+  0%
+    opacity: 0
+
+  50%
+    opacity: .1
+
+  100%
+    opacity: 1
 
 @media (max-width: 500px)
+  h1
+    font-size: 32px
+
+  h2
+    font-size: 30px
+
   .expected
     flex-direction: column
 
@@ -63,18 +95,38 @@ button
   font-size: 1em
   color: $backgroundColor
   background-color: $navyBlue
+  transition: background-color 0.4s, border 0.4s
 
   a
-    color: $backgroundColor
-    font-weight: 600
-    text-decoration: none
+    color: $navyBlue
 
   &:hover
     background-color: $highlightColor
     border: 2px solid $highlightColor
+    color: $navyBlue
+    transition: background-color 0.4s, border 0.4s
+    cursor: pointer
 
-    a
-      color: $navyBlue
+  &:active
+    border: 2px solid $navyBlue
+
 
 .service-details
-  margin: 2em 0
+  margin: 2em 2em
+  animation: slideup .5s ease-in, fadein 1s ease-in
+
+  p
+    margin-top: 0.4em
+    margin-bottom: 2em
+
+.departure-point
+  animation: fadein 1s cubic-bezier(0.215, 0.610, 0.355, 1.000)
+
+@keyframes slideup
+  0%
+    margin-top: 3em
+  100%
+    margin-top: 2em
+
+.loading
+  margin-top: 2em

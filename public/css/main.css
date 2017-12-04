@@ -1,4 +1,6 @@
 body {
+  padding: 0;
+  margin: 0;
   background-color: #e5e5e5;
   font-family: Roboto, Helvetica, Arial, sans-serif;
   color: #333333;
@@ -6,21 +8,32 @@ body {
   font-size: 20px; }
 
 h1 {
+  margin-top: 0;
   color: #e5e5e5;
   background: #00364a;
-  font-size: 36px;
+  font-size: 42px;
   text-align: center;
-  padding: .3em; }
+  padding: 1em; }
   h1 span {
     color: #c4db0d; }
 
 h2 {
+  font-size: 36px;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
   color: #006DB2;
   text-align: center; }
 
+h4 {
+  margin-bottom: 0.1em;
+  color: #006DB2; }
+
 .container {
-  max-width: 90vw;
-  margin: 0 auto; }
+  width: 100vw;
+  min-height: 100vh;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden; }
 
 .expected {
   font-size: 200%;
@@ -30,9 +43,24 @@ h2 {
   justify-content: center;
   padding: 0 .5em; }
   .expected img {
-    margin-right: .5em; }
+    margin-right: .5em;
+    animation: fadein 1s ease-in; }
+  .expected p {
+    animation: fadein 1s ease-in; }
+
+@keyframes fadein {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: .1; }
+  100% {
+    opacity: 1; } }
 
 @media (max-width: 500px) {
+  h1 {
+    font-size: 32px; }
+  h2 {
+    font-size: 30px; }
   .expected {
     flex-direction: column; }
     .expected span {
@@ -48,16 +76,34 @@ button {
   border: 2px solid #00364a;
   font-size: 1em;
   color: #e5e5e5;
-  background-color: #00364a; }
+  background-color: #00364a;
+  transition: background-color 0.4s, border 0.4s; }
   button a {
-    color: #e5e5e5;
-    font-weight: 600;
-    text-decoration: none; }
+    color: #00364a; }
   button:hover {
     background-color: #c4db0d;
-    border: 2px solid #c4db0d; }
-    button:hover a {
-      color: #00364a; }
+    border: 2px solid #c4db0d;
+    color: #00364a;
+    transition: background-color 0.4s, border 0.4s;
+    cursor: pointer; }
+  button:active {
+    border: 2px solid #00364a; }
 
 .service-details {
-  margin: 2em 0; }
+  margin: 2em 2em;
+  animation: slideup .5s ease-in, fadein 1s ease-in; }
+  .service-details p {
+    margin-top: 0.4em;
+    margin-bottom: 2em; }
+
+.departure-point {
+  animation: fadein 1s cubic-bezier(0.215, 0.61, 0.355, 1); }
+
+@keyframes slideup {
+  0% {
+    margin-top: 3em; }
+  100% {
+    margin-top: 2em; } }
+
+.loading {
+  margin-top: 2em; }
