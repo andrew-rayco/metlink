@@ -8,12 +8,8 @@ body {
   font-size: 20px; }
 
 h1 {
-  margin-top: 0;
   color: #e5e5e5;
-  background: #00364a;
-  font-size: 42px;
-  text-align: center;
-  padding: 1em; }
+  font-size: 42px; }
   h1 span {
     color: #c4db0d; }
 
@@ -35,6 +31,17 @@ h4 {
   margin: 0 auto;
   overflow: hidden; }
 
+.header {
+  background: #00364a;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .header img {
+    width: 5vw;
+    margin-right: .5em;
+    min-width: 40px;
+    max-width: 50px; }
+
 .expected {
   font-size: 200%;
   background-color: #c4db0d;
@@ -48,28 +55,15 @@ h4 {
   .expected p {
     animation: fadein 1s ease-in; }
 
-@keyframes fadein {
-  0% {
-    opacity: 0; }
-  50% {
-    opacity: .1; }
-  100% {
-    opacity: 1; } }
+.service-details {
+  margin: 2em 2em;
+  animation: slideup .5s ease-in, fadein 1s ease-in; }
+  .service-details p {
+    margin-top: 0.4em;
+    margin-bottom: 2em; }
 
-@media (max-width: 500px) {
-  h1 {
-    font-size: 32px; }
-  h2 {
-    font-size: 30px; }
-  .expected {
-    flex-direction: column; }
-    .expected span {
-      display: block; }
-    .expected p {
-      margin: .5em; }
-    .expected img {
-      margin-right: 0;
-      margin-top: .5em; } }
+.departure-point {
+  animation: fadein 1s cubic-bezier(0.215, 0.61, 0.355, 1); }
 
 button {
   padding: 1em;
@@ -80,24 +74,38 @@ button {
   transition: background-color 0.4s, border 0.4s; }
   button a {
     color: #00364a; }
-  button:hover {
-    background-color: #c4db0d;
-    border: 2px solid #c4db0d;
-    color: #00364a;
-    transition: background-color 0.4s, border 0.4s;
-    cursor: pointer; }
-  button:active {
-    border: 2px solid #00364a; }
+    button a:hover {
+      background-color: #c4db0d;
+      border: 2px solid #c4db0d;
+      color: #00364a;
+      transition: background-color 0.4s, border 0.4s;
+      cursor: pointer; }
+      button a:hover:active {
+        border: 2px solid #00364a; }
 
-.service-details {
-  margin: 2em 2em;
-  animation: slideup .5s ease-in, fadein 1s ease-in; }
-  .service-details p {
-    margin-top: 0.4em;
-    margin-bottom: 2em; }
+@media (max-width: 500px) {
+  h1 {
+    font-size: 32px; }
+  h2 {
+    font-size: 30px; }
+  .expected {
+    flex-direction: column;
+    font-size: 180%; }
+    .expected span {
+      display: block; }
+    .expected p {
+      margin: .5em; }
+    .expected img {
+      margin-right: 0;
+      margin-top: .5em; } }
 
-.departure-point {
-  animation: fadein 1s cubic-bezier(0.215, 0.61, 0.355, 1); }
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    50% {
+      opacity: .1;
+      100% {
+        opacity: 1; } } } }
 
 @keyframes slideup {
   0% {
