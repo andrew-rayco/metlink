@@ -57,7 +57,8 @@ class ShowTimes extends React.Component {
       <div>
         {this.startTimer()}
         <div className="service-details departure-point">
-          <p><strong>Leaving from: </strong> {stop.Name}</p>
+          <h4>Leaving from</h4>
+          <p>{stop.Name}</p>
         </div>
         <CountDown min={this.state.time.m} sec={this.state.time.s} />
         <ServiceDetails
