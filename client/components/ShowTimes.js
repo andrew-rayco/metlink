@@ -3,6 +3,7 @@ import TimeAgo from 'react-timeago'
 import moment from 'moment'
 
 import CountDown from './CountDown'
+import ServiceDetails from './ServiceDetails'
 
 class ShowTimes extends React.Component {
   constructor(props) {
@@ -64,12 +65,8 @@ class ShowTimes extends React.Component {
         <div className="service-details">
           <p><strong>Leaving from: </strong> {stop.Name}</p>
         </div>
-        <CountDown />
-
-        <div className="expected">
-          <img src="/img/duration.svg" alt="clock icon"/>
-          <p><span><strong>{this.state.time.m}</strong> mins</span> <span><strong>{this.state.time.s}</strong> seconds</span></p>
-        </div>
+        <CountDown min={this.state.time.m} sec={this.state.time.s} />
+        <ServiceDetails />
 
         <div className="service-details">
           <p><strong>Last modified: </strong>
