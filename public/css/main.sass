@@ -16,12 +16,11 @@ body
   font-size: 20px
 
 h1
-  margin-top: 0
+  // margin-top:
   color: $backgroundColor
-  background: $navyBlue
   font-size: 42px
-  text-align: center
-  padding: 1em
+  // text-align: center
+  // padding: 1em
 
   span
     color: $highlightColor
@@ -44,6 +43,18 @@ h4
   margin: 0 auto
   overflow: hidden
 
+.header
+  background: $navyBlue
+  display: flex
+  justify-content: center
+  align-items: center
+
+  img
+    width: 5vw
+    margin-right: .5em
+    min-width: 40px
+    max-width: 50px
+
 .expected
   font-size: 200%
   background-color: $highlightColor
@@ -59,35 +70,19 @@ h4
   p
     animation: fadein 1s ease-in
 
-@keyframes fadein
-  0%
-    opacity: 0
+.service-details
+  margin: 2em 2em
+  animation: slideup .5s ease-in, fadein 1s ease-in
 
-  50%
-    opacity: .1
+  p
+    margin-top: 0.4em
+    margin-bottom: 2em
 
-  100%
-    opacity: 1
+.departure-point
+  animation: fadein 1s cubic-bezier(0.215, 0.610, 0.355, 1.000)
 
-@media (max-width: 500px)
-  h1
-    font-size: 32px
 
-  h2
-    font-size: 30px
-
-  .expected
-    flex-direction: column
-
-    span
-      display: block
-
-    p
-      margin: .5em
-
-    img
-      margin-right: 0
-      margin-top: .5em
+// Button
 
 button
   padding: 1em
@@ -100,27 +95,52 @@ button
   a
     color: $navyBlue
 
-  &:hover
-    background-color: $highlightColor
-    border: 2px solid $highlightColor
-    color: $navyBlue
-    transition: background-color 0.4s, border 0.4s
-    cursor: pointer
+    &:hover
+      background-color: $highlightColor
+      border: 2px solid $highlightColor
+      color: $navyBlue
+      transition: background-color 0.4s, border 0.4s
+      cursor: pointer
 
-  &:active
-    border: 2px solid $navyBlue
+      &:active
+        border: 2px solid $navyBlue
 
 
-.service-details
-  margin: 2em 2em
-  animation: slideup .5s ease-in, fadein 1s ease-in
+// Media queries
 
-  p
-    margin-top: 0.4em
-    margin-bottom: 2em
+@media (max-width: 500px)
+  h1
+    font-size: 32px
 
-.departure-point
-  animation: fadein 1s cubic-bezier(0.215, 0.610, 0.355, 1.000)
+  h2
+    font-size: 30px
+
+  .expected
+    flex-direction: column
+    font-size: 180%
+
+    span
+      display: block
+
+    p
+      margin: .5em
+
+    img
+      margin-right: 0
+      margin-top: .5em
+
+
+// Keyframes
+
+@keyframes fadein
+  0%
+    opacity: 0
+
+    50%
+      opacity: .1
+
+      100%
+        opacity: 1
 
 @keyframes slideup
   0%

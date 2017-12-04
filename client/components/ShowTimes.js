@@ -8,7 +8,7 @@ class ShowTimes extends React.Component {
     super(props)
     this.state = {
       time: {},
-      seconds: props.data.Services[0].DisplayDepartureSeconds
+      seconds: props.data.Services[0] ? props.data.Services[0].DisplayDepartureSeconds : 9999
     }
     this.timer = 0
     this.startTimer = this.startTimer.bind(this)
@@ -52,7 +52,6 @@ class ShowTimes extends React.Component {
   render() {
     let stop = this.props.data.Stop
     let servicesArray = this.props.data.Services
-    let expectedDeparture = servicesArray[0].ExpectedDeparture
     return (
       <div>
         {this.startTimer()}
