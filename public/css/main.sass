@@ -39,9 +39,24 @@ h2
   align-items: center
   justify-content: center
   padding: 0 .5em
+  // animation: fadein 3s
 
   img
     margin-right: .5em
+    animation: fadein 1s ease-in
+
+  p
+    animation: fadein 1s ease-in
+
+@keyframes fadein
+  0%
+    opacity: 0
+
+  50%
+    opacity: .1
+
+  100%
+    opacity: 1
 
 @media (max-width: 500px)
   .expected
@@ -63,18 +78,27 @@ button
   font-size: 1em
   color: $backgroundColor
   background-color: $navyBlue
-
-  a
-    color: $backgroundColor
-    font-weight: 600
-    text-decoration: none
+  transition: background-color 0.4s, border 0.4s
 
   &:hover
     background-color: $highlightColor
     border: 2px solid $highlightColor
+    color: $navyBlue
+    transition: background-color 0.4s, border 0.4s
+    cursor: pointer
 
-    a
-      color: $navyBlue
+  a
+    color: $navyBlue
 
 .service-details
   margin: 2em 0
+  animation: slideup 1s ease-in, fadein 1s ease-in
+
+.departure-point
+  animation: fadein 1s ease-in
+
+@keyframes slideup
+  0%
+    margin-top: 10em
+  100%
+    margin-top: 2em

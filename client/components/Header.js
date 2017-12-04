@@ -5,8 +5,6 @@ function Header (props) {
   return (
     <div className="header">
       <h1>Sexy Met<span>link</span> App</h1>
-
-
     </div>
   )
 }
