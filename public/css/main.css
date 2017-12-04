@@ -19,7 +19,8 @@ h1 {
 
 h2 {
   font-size: 36px;
-  margin-top: 2em;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
   color: #006DB2;
   text-align: center; }
 
@@ -77,28 +78,30 @@ button {
   color: #e5e5e5;
   background-color: #00364a;
   transition: background-color 0.4s, border 0.4s; }
+  button a {
+    color: #00364a; }
   button:hover {
     background-color: #c4db0d;
     border: 2px solid #c4db0d;
     color: #00364a;
     transition: background-color 0.4s, border 0.4s;
     cursor: pointer; }
-  button a {
-    color: #00364a; }
+  button:active {
+    border: 2px solid #00364a; }
 
 .service-details {
   margin: 2em 2em;
-  animation: slideup 1s ease-in, fadein 1s ease-in; }
+  animation: slideup .5s ease-in, fadein 1s ease-in; }
   .service-details p {
     margin-top: 0.4em;
     margin-bottom: 2em; }
 
 .departure-point {
-  animation: fadein 0.5s cubic-bezier(0.215, 0.61, 0.355, 1); }
+  animation: fadein 1s cubic-bezier(0.215, 0.61, 0.355, 1); }
 
 @keyframes slideup {
   0% {
-    margin-top: 5em; }
+    margin-top: 3em; }
   100% {
     margin-top: 2em; } }
 

@@ -28,7 +28,8 @@ h1
 
 h2
   font-size: 36px
-  margin-top: 2em
+  margin-top: 1.5em
+  margin-bottom: 1em
   color: $headingColor
   text-align: center
 
@@ -96,6 +97,9 @@ button
   background-color: $navyBlue
   transition: background-color 0.4s, border 0.4s
 
+  a
+    color: $navyBlue
+
   &:hover
     background-color: $highlightColor
     border: 2px solid $highlightColor
@@ -103,23 +107,24 @@ button
     transition: background-color 0.4s, border 0.4s
     cursor: pointer
 
-  a
-    color: $navyBlue
+  &:active
+    border: 2px solid $navyBlue
+
 
 .service-details
   margin: 2em 2em
-  animation: slideup 1s ease-in, fadein 1s ease-in
+  animation: slideup .5s ease-in, fadein 1s ease-in
 
   p
     margin-top: 0.4em
     margin-bottom: 2em
 
 .departure-point
-  animation: fadein 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000)
+  animation: fadein 1s cubic-bezier(0.215, 0.610, 0.355, 1.000)
 
 @keyframes slideup
   0%
-    margin-top: 5em
+    margin-top: 3em
   100%
     margin-top: 2em
 
