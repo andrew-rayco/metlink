@@ -2,6 +2,8 @@ import React from 'react'
 import TimeAgo from 'react-timeago'
 import moment from 'moment'
 
+import CountDown from './CountDown'
+
 class ShowTimes extends React.Component {
   constructor(props) {
     super(props)
@@ -62,6 +64,7 @@ class ShowTimes extends React.Component {
         <div className="service-details">
           <p><strong>Leaving from: </strong> {stop.Name}</p>
         </div>
+        <CountDown />
 
         <div className="expected">
           <img src="/img/duration.svg" alt="clock icon"/>
