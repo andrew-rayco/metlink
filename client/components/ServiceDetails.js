@@ -5,12 +5,15 @@ import moment from 'moment'
 const ServiceDetails = (props) => {
   return (
     <div className="service-details">
-      <p><strong>Last modified: </strong>
-        <TimeAgo date={props.date}/>
-      </p>
-      <p><strong>Expected time: </strong>
-          {moment(props.nextService.ExpectedDeparture).format('h:mm a')} and  {moment(props.nextService.ExpectedDeparture).format('ss')} seconds</p>
-      <p><strong>Following service: </strong> {props.followingService ? moment(props.followingService.ExpectedDeparture).format('h:mm a') : 'None expected yet'}</p>
+      <h4>Last modified</h4>
+      <p><TimeAgo date={props.date}/></p>
+
+      <h4>Expected time</h4>
+      <p>{moment(props.nextService.ExpectedDeparture).format('h:mm a')} and  {moment(props.nextService.ExpectedDeparture).format('ss')} seconds</p>
+
+      <h4>Following service</h4>
+      <p>{props.followingService ? moment(props.followingService.ExpectedDeparture).format('h:mm a') :
+      'None expected yet'}</p>
     </div>
   )
 }
