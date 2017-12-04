@@ -7,3 +7,4 @@ Some real-world testing will need to be done to check the timing accuracy of the
 
 ### Todo
 - Real-world testing
+- More robust error handling when data not complete
