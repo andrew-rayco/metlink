@@ -73,7 +73,7 @@ class ShowTimes extends React.Component {
             <TimeAgo date={this.props.data.LastModified}/></p>
           <p><strong>Expected time: </strong>
               {moment(servicesArray[0].ExpectedDeparture).format('h:mm a')} and  {moment(servicesArray[0].ExpectedDeparture).format('ss')} seconds</p>
-          <p><strong>Next service: </strong> {servicesArray[1] ? moment(servicesArray[1].ExpectedDeparture).format('h:mm a') : 'None expected yet'}</p>
+          <p><strong>Following service: </strong> {servicesArray[1] ? moment(servicesArray[1].ExpectedDeparture).format('h:mm a') : 'None expected yet'}</p>
         </div>
 
       </div>
