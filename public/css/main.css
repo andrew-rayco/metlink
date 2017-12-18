@@ -99,6 +99,16 @@ button {
       margin-right: 0;
       margin-top: .5em; } }
 
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2em; }
+  form label {
+    margin: 1em; }
+
+.loading {
+  margin-top: 2em; }
+
 @keyframes fadein {
   0% {
     opacity: 0;
@@ -112,6 +122,3 @@ button {
     margin-top: 3em; }
   100% {
     margin-top: 2em; } }
-
-.loading {
-  margin-top: 2em; }
