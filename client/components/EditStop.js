@@ -5,11 +5,11 @@ const EditStop = () => {
     <form>
       <label for="home">Home stop #
         <input id="home" type="text" name="home-stop"/>
-        <input type="submit" value="Update"/>
+        <button id="home-update" value="Update">Update</button>
       </label>
       <label for="town">Town stop #
         <input id="town" type="text" name="town-stop"/>
-        <input type="submit" value="Update"/>
+        <button type="submit" value="Update">Update</button>
       </label>
     </form>
   )
