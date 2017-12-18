@@ -12,6 +12,30 @@ class EditStop extends React.Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
+  componentWillMount() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User is signed in.
+        // var displayName = user.displayName;
+        // var email = user.email;
+        // var emailVerified = user.emailVerified;
+        // var photoURL = user.photoURL;
+        // var isAnonymous = user.isAnonymous;
+        // var uid = user.uid;
+        // var providerData = user.providerData;
+        this.setState({ email: user.email })
+        this.props.history.push('/login')
+        return true
+        // ...
+      } else {
+        console.log('user is signed out')
+        return false
+        // User is signed out.
+        // ...
+      }
+    })
+  }
+
   handleChange(e) {
     let id = e.target.id
     let value = e.target.value
