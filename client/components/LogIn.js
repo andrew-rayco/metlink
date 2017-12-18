@@ -1,7 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
-class SignUp extends React.Component {
+class LogIn extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -11,6 +10,31 @@ class SignUp extends React.Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
+  }
+
+  componentWillMount() {
+    console.log(this.props.history)
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User is signed in.
+        // var displayName = user.displayName;
+        // var email = user.email;
+        // var emailVerified = user.emailVerified;
+        // var photoURL = user.photoURL;
+        // var isAnonymous = user.isAnonymous;
+        // var uid = user.uid;
+        // var providerData = user.providerData;
+        this.setState({ email: user.email })
+        this.props.history.push('/')
+        return true
+        // ...
+      } else {
+        console.log('user is signed out')
+        return false
+        // User is signed out.
+        // ...
+      }
+    })
   }
 
   handleChange(e) {
@@ -38,33 +62,10 @@ class SignUp extends React.Component {
     })
   }
 
-  checkUserSignedIn() {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        // User is signed in.
-        // var displayName = user.displayName;
-        // var email = user.email;
-        // var emailVerified = user.emailVerified;
-        // var photoURL = user.photoURL;
-        // var isAnonymous = user.isAnonymous;
-        // var uid = user.uid;
-        // var providerData = user.providerData;
-        console.log('user is logged in', user)
-        return true
-        // ...
-      } else {
-        console.log('user is signed out')
-        return false
-        // User is signed out.
-        // ...
-      }
-    })
-  }
-
   render() {
     return (
       <div>
-        <h2>Sign up</h2>
+        <h2>Log in</h2>
         <form>
           <label htmlFor="email">
             Email
@@ -76,11 +77,11 @@ class SignUp extends React.Component {
           </label>
           <input type="submit" value="Submit" onClick={this.handleClick}/>
         </form>
-        <p>{this.checkUserSignedIn() ? 'user is logged in as ' + this.state.email : <Link to="/login">Log in</Link> }</p>
+        <p>{this.state.email ? 'user is logged in as ' + this.state.email : 'Log in'}</p>
       </div>
 
     )
   }
 }
 
-export default SignUp
+export default LogIn
