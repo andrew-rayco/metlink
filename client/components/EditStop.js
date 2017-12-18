@@ -9,6 +9,7 @@ class EditStop extends React.Component {
      }
 
     this.handleChange = this.handleChange.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   handleChange(e) {
@@ -17,18 +18,24 @@ class EditStop extends React.Component {
     this.setState( { [id]: value } )
   }
 
+  handleClick(e) {
+    e.preventDefault()
+    console.log(e.target.id)
+    console.log(this.state[e.target.id])
+  }
+
   render() {
     return (
       <form>
         <label htmlFor="homeStop">
           Home stop #
           <input id="homeStop" type="number" value={this.state.homeStop} onChange={this.handleChange}/>
-          <button id="home-update" value="Update">Update</button>
+          <input onClick={this.handleClick} type="submit" id="homeStop" value="Update" />
         </label>
         <label htmlFor="townStop">
           Town stop #
           <input id="townStop" type="number" value={this.state.townStop} onChange={this.handleChange}/>
-          <button type="submit" value="Update">Update</button>
+          <input type="submit" id="townStop" value="Update" />
         </label>
       </form>
     )
