@@ -12,19 +12,5 @@ const UserLinks = () => {
   )
 }
 
-// function isLoggedIn() {
-//   let userData
-//   firebase.auth().onAuthStateChanged((user) => {
-//     if (user) {
-//       console.log('UserLinks component', user.email)
-//       userData = user
-//     } else {
-//       console.log('UserLinks component - No user logged in')
-//     }
-//     return userData
-//   })
-//   return userData
-// }
-
 
 export default UserLinks

@@ -48,7 +48,9 @@ class LogIn extends React.Component {
     const auth = firebase.auth()
     // Sign in
     const promise = auth.signInWithEmailAndPassword(email, pass)
-    promise.catch(e => this.setState({ message: e.message }))
+    promise
+      .then(this.props.history.push('/'))
+      .catch(e => this.setState({ message: e.message }))
   }
 
   handleSignUp() {
