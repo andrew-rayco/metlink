@@ -32,7 +32,8 @@ class LogIn extends React.Component {
         this.setState({
           email: user.email,
           inputEmail: '',
-          inputPassword: '' })
+          inputPassword: '',
+          loggedIn: true })
       } else {
         console.log('from the realtime listener - not logged in')
       }
@@ -85,9 +86,18 @@ class LogIn extends React.Component {
           <label htmlFor="password">
             <input id="password" type="text" placeholder="Password" value={this.state.inputPassword} onChange={this.handleChange}/>
           </label>
-          <button onClick={this.handleLogIn}>Log in</button>
-          <button onClick={this.handleSignUp}>Sign up</button>
-          <button className="hide" onClick={this.handleLogOut}>Log out</button>
+          {this.state.loggedIn
+            ? null
+            : <button onClick={this.handleLogIn}>Log in</button>
+          }
+          {this.state.loggedIn
+            ? null
+            : <button onClick={this.handleSignUp}>Sign Up</button>
+          }
+          {this.state.loggedIn
+            ? <button onClick={this.handleLogOut}>Log out</button>
+            : null
+          }
         </form>
       </div>
 
