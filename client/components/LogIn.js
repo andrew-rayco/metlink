@@ -19,6 +19,12 @@ class LogIn extends React.Component {
     this.addRealtimeAuthListener()
   }
 
+  componentWillMount() {
+    if (this.props.location.state) {
+      this.setState({ message: this.props.location.state.message })
+    }
+  }
+
   handleChange(e) {
     let id = 'input' + e.target.id[0].toUpperCase() + e.target.id.slice(1)
     let value = e.target.value

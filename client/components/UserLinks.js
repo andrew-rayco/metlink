@@ -1,13 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import * as fb from '../helpers/firebase-helpers'
+
 const UserLinks = () => {
   return (
-    <div className="user-links">
-      <Link to="/edit">Manage stops</Link>
-      <Link to="/login">Login</Link>
-      <Link to="/signup">Sign up</Link>
-      {/* {isLoggedIn() ? 'someone is logged in' : 'no user logged in'} */}
+    <div>
+      {fb.isLoggedIn()
+        ? <div className="user-links">
+            <Link to="/edit">Manage stops</Link>
+            <Link to="/login">Logout</Link>
+          </div>
+        : <div className="user-links">
+            <Link to="/edit">Manage stops</Link>
+          </div>}
     </div>
   )
 }

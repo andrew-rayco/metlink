@@ -1,4 +1,5 @@
 import React from 'react'
+
 import * as fb from '../helpers/firebase-helpers'
 
 class EditStop extends React.Component {
@@ -14,29 +15,12 @@ class EditStop extends React.Component {
   }
 
   componentWillMount() {
-    let user = fb.isLoggedIn
-    console.log(user())
-    // firebase.auth().onAuthStateChanged((user) => {
-    //   if (user) {
-    //     // User is signed in.
-    //     // var displayName = user.displayName;
-    //     // var email = user.email;
-    //     // var emailVerified = user.emailVerified;
-    //     // var photoURL = user.photoURL;
-    //     // var isAnonymous = user.isAnonymous;
-    //     // var uid = user.uid;
-    //     // var providerData = user.providerData;
-    //     this.setState({ email: user.email })
-    //     this.props.history.push('/login')
-    //     return true
-    //     // ...
-    //   } else {
-    //     console.log('user is signed out')
-    //     return false
-    //     // User is signed out.
-    //     // ...
-    //   }
-    // })
+    fb.isLoggedIn() ? null : this.props.history.push({
+      pathname: '/login',
+      state: {
+        message: 'You need to be logged in to do that'
+      }
+    })
   }
 
   handleChange(e) {

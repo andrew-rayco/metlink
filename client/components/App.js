@@ -10,7 +10,6 @@ import Header from './Header'
 import ToTown from './ToTown'
 import GoingHome from './GoingHome'
 import EditStop from './EditStop'
-import SignUp from './SignUp'
 import LogIn from './LogIn'
 
 function App (props) {
@@ -21,7 +20,6 @@ function App (props) {
         <Route exact path="/" component={ToTown} />
         <Route path="/going-home" component={GoingHome} />
         <Route path="/edit" component={EditStop} />
-        <Route path="/signup" component={SignUp} />
         <Route path="/login" component={LogIn} />
       </div>
     </Router>
