@@ -122,6 +122,12 @@ form {
 .loading {
   margin-top: 2em; }
 
+.user-links {
+  display: flex;
+  flex-direction: column; }
+  .user-links a {
+    margin-bottom: 0.5em; }
+
 @keyframes fadein {
   0% {
     opacity: 0;

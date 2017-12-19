@@ -1,7 +1,8 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 import TimeAgo from 'react-timeago'
 import moment from 'moment'
+
+import UserLinks from './UserLinks'
 
 const ServiceDetails = (props) => {
   if (props.nextService) {
@@ -23,8 +24,7 @@ const ServiceDetails = (props) => {
         <p>{props.followingService
             ? moment(props.followingService.ExpectedDeparture).format('h:mm a')
             : 'None expected yet'}</p>
-
-        <Link to="/edit">Manage stops</Link>
+        <UserLinks />
       </div>
 
     )
