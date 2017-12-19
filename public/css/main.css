@@ -68,10 +68,10 @@ h4 {
 button,
 form input[type="submit"] {
   padding: 1em;
+  background-color: #00364a;
   border: 2px solid #00364a;
   font-size: 1em;
   color: #e5e5e5;
-  background-color: #00364a;
   transition: background-color 0.4s, border 0.4s; }
   button a,
   form input[type="submit"] a {
@@ -86,6 +86,15 @@ form input[type="submit"] {
     button:hover:active,
     form input[type="submit"]:hover:active {
       border: 2px solid #00364a; }
+
+.opposite-button {
+  background-color: #c4db0d;
+  border: 2px solid #c4db0d;
+  color: #00364a; }
+  .opposite-button:hover {
+    background-color: #00364a;
+    border: 2px solid #00364a;
+    color: #c4db0d; }
 
 @media (max-width: 500px) {
   h1 {
@@ -115,9 +124,18 @@ form {
     justify-content: center; }
     form label input {
       margin: 0.7em 0 0; }
-  form button {
+
+.login-buttons {
+  display: flex;
+  max-width: 20%;
+  margin: 0 auto; }
+  .login-buttons button {
     padding: 0.5em;
     margin: 0.5em auto; }
+
+.user button {
+  padding: 0.5em;
+  margin: 0.5em auto; }
 
 .loading {
   margin-top: 2em; }

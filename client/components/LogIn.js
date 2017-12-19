@@ -8,7 +8,8 @@ class LogIn extends React.Component {
     this.state = {
       password: '',
       email: '',
-      loggedIn: false
+      loggedIn: false,
+      message: ''
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -47,7 +48,7 @@ class LogIn extends React.Component {
     const auth = firebase.auth()
     // Sign in
     const promise = auth.signInWithEmailAndPassword(email, pass)
-    promise.catch(e => alert(e.message))
+    promise.catch(e => this.setState({ message: e.message }))
   }
 
   handleSignUp() {
@@ -59,7 +60,7 @@ class LogIn extends React.Component {
     // Sign in
     const promise = auth.createUserWithEmailAndPassword(email, pass)
     promise
-      .catch(e => alert(e.message))
+      .catch(e => this.setState({ message: e.message }))
   }
 
   handleLogOut() {
@@ -68,6 +69,7 @@ class LogIn extends React.Component {
       password: '',
       inputEmail: '',
       inputPassword: '',
+      message: '',
       loggedIn: false
     })
     firebase.auth().signOut()
@@ -75,30 +77,45 @@ class LogIn extends React.Component {
 
 
   render() {
-    console.log(this.state)
     return (
-      <div>
+      <div className="user">
         <h2>Log in</h2>
-        <form>
-          <label htmlFor="email">
-            <input id="email" type="email" placeholder="Email" value={this.state.inputEmail} onChange={this.handleChange}/>
-          </label>
-          <label htmlFor="password">
-            <input id="password" type="text" placeholder="Password" value={this.state.inputPassword} onChange={this.handleChange}/>
-          </label>
-          {this.state.loggedIn
-            ? null
-            : <button onClick={this.handleLogIn}>Log in</button>
+
+        {/* Show message if exists */}
+        {this.state.message
+          ? <p className="danger">{this.state.message}</p>
+          : null}
+
+        {/* If logged in show only logged in message and logout button */}
+        {this.state.loggedIn
+          ? <div>
+              <p>Currently logged in as {this.state.email}</p>
+              <button onClick={this.handleLogOut}>Log out</button>
+            </div>
+          : null}
+
+        {/* Only show form if not logged in */}
+        {this.state.loggedIn
+          ? null
+          : <form>
+              <label htmlFor="email">
+                <input id="email" type="email" placeholder="Email" value={this.state.inputEmail} onChange={this.handleChange}/>
+              </label>
+              <label htmlFor="password">
+                <input id="password" type="text" placeholder="Password" value={this.state.inputPassword} onChange={this.handleChange}/>
+              </label>
+            </form>
           }
-          {this.state.loggedIn
-            ? null
-            : <button onClick={this.handleSignUp}>Sign Up</button>
-          }
-          {this.state.loggedIn
-            ? <button onClick={this.handleLogOut}>Log out</button>
-            : null
-          }
-        </form>
+
+        {/* Only show login and signup buttons if not logged in */}
+        {this.state.loggedIn
+          ? null
+          : <div className="login-buttons">
+              <button className="opposite-button" onClick={this.handleSignUp}>Sign Up</button>
+              <button onClick={this.handleLogIn}>Log in</button>
+            </div>
+        }
+
       </div>
 
     )
