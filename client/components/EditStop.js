@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import * as fb from '../helpers/firebase-helpers'
 
@@ -6,8 +7,8 @@ class EditStop extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      homeStop: '15',
-      townStop: '1111'
+      homeStop: '',
+      townStop: ''
      }
 
     this.handleChange = this.handleChange.bind(this)
@@ -15,13 +16,43 @@ class EditStop extends React.Component {
   }
 
   componentWillMount() {
-    fb.isLoggedIn() ? null : this.props.history.push({
-      pathname: '/login',
-      state: {
-        message: 'You need to be logged in to do that'
-      }
-    })
+    //  Redirect to login page if user not logged in.
+    // fb.isLoggedIn()
+    //   ? null
+    //   : this.props.history.push({
+    //     pathname: '/login',
+    //     state: {
+    //       message: 'You need to be logged in to do that'
+    //     }
+    //   })
+
+    let user = firebase.auth().currentUser
+
+    if (user) {
+      // check if there are currently stops for this user
+      firebase.database().ref(user.uid).once('value')
+        .then((data) => {
+          console.log('data', data.val())
+          let userData = data.val()
+          this.setState({
+            userId: user.uid,
+            homeStop: userData.homeStop,
+            townStop: userData.townStop
+          })
+        })
+        .catch((e) => {
+          console.log(e.message)
+        })
+    }
   }
+
+  // componentDidMount() {
+  //   console.log(Boolean(fb.isLoggedIn()))
+  //   if (fb.isLoggedIn()) {
+  //     let user = fb.isLoggedIn()
+  //     console.log('user', user.uid)
+  //   }
+  // }
 
   handleChange(e) {
     let id = e.target.id
@@ -48,6 +79,7 @@ class EditStop extends React.Component {
           <input id="townStop" type="number" value={this.state.townStop} onChange={this.handleChange}/>
           <input type="submit" id="townStop" value="Update" />
         </label>
+        <Link to="/login">Login</Link>
       </form>
     )
   }

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import UserLinks from './UserLinks'
 
@@ -68,6 +69,12 @@ class LogIn extends React.Component {
     // Sign in
     const promise = auth.createUserWithEmailAndPassword(email, pass)
     promise
+      .then(user => {
+        firebase.database().ref(user.uid).set({
+          homeStop: '4125',
+          townStop: '5515'
+        })
+      })
       .catch(e => this.setState({ message: e.message }))
   }
 
@@ -123,6 +130,8 @@ class LogIn extends React.Component {
               <button onClick={this.handleLogIn}>Log in</button>
             </div>
         }
+
+      <Link to="/edit">Edit stops</Link>
 
       </div>
 
