@@ -6,7 +6,7 @@ import * as fb from '../helpers/firebase-helpers'
 const UserLinks = () => {
   return (
     <div>
-      {fb.isLoggedIn()
+      {fb.isLoggedIn(data => {})
         ? <div className="user-links">
             <Link to="/edit">Manage stops</Link>
             <Link to="/login">Logout</Link>

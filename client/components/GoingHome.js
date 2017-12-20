@@ -20,7 +20,7 @@ class GoingHome extends React.Component {
 
   componentWillMount() {
     fb.isLoggedIn((data) => {
-      console.log('callback agogo', data)
+      // console.log('callback agogo', data)
     })
     // is user logged in?
     // If so, get userData
