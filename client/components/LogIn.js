@@ -71,6 +71,7 @@ class LogIn extends React.Component {
     promise
       .then(user => {
         firebase.database().ref(user.uid).set({
+          userId: user.uid,
           homeStop: '4125',
           townStop: '5515',
           ServiceId: '14'
