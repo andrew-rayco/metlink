@@ -46,14 +46,6 @@ class EditStop extends React.Component {
     }
   }
 
-  // componentDidMount() {
-  //   console.log(Boolean(fb.isLoggedIn()))
-  //   if (fb.isLoggedIn()) {
-  //     let user = fb.isLoggedIn()
-  //     console.log('user', user.uid)
-  //   }
-  // }
-
   handleChange(e) {
     let id = e.target.id
     let value = e.target.value

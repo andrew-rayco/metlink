@@ -72,7 +72,8 @@ class LogIn extends React.Component {
       .then(user => {
         firebase.database().ref(user.uid).set({
           homeStop: '4125',
-          townStop: '5515'
+          townStop: '5515',
+          ServiceID: '14'
         })
       })
       .catch(e => this.setState({ message: e.message }))
