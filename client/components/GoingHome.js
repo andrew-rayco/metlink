@@ -25,13 +25,13 @@ class GoingHome extends React.Component {
     // is user logged in?
     // If so, get userData
 
-    api.getData('to-home', (toTownData) => {
-      let allServices = toTownData.Services
+    api.getData('to-home', (toHomeData) => {
+      let allServices = toHomeData.Services
       let onlyMyServices = allServices.filter((service) => {
         return service.ServiceID == "14"
       })
-      toTownData.Services = onlyMyServices
-      this.setState({ data: toTownData })
+      toHomeData.Services = onlyMyServices
+      this.setState({ data: toHomeData })
     })
   }
 

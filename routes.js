@@ -4,7 +4,8 @@ let request = require('superagent')
 
 let url = 'https://www.metlink.org.nz/api/v1/StopDepartures/'
 
-router.get('/to-town', function (req, res) {
+router.post('/to-town', function (req, res) {
+  console.log('req', req.body)
   request
     .get(url + '4125')
     .end((err, result) => {

@@ -2,7 +2,8 @@ import request from 'superagent'
 
 export function getData (destination, callback) {
   request
-    .get('api-v1/' + destination)
+    .post('api-v1/' + destination)
+    .send({ "name": 'Andy' })
     .end((err, result) => {
       err ? callback(err) : callback(result.body)
     })
