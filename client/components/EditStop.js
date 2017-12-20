@@ -37,7 +37,8 @@ class EditStop extends React.Component {
           this.setState({
             userId: user.uid,
             homeStop: userData.homeStop,
-            townStop: userData.townStop
+            townStop: userData.townStop,
+            serviceId: userData.serviceId || '14'
           })
         })
         .catch((e) => {
