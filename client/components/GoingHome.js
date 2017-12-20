@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import * as api from '../api'
+import * as fb from '../helpers/firebase-helpers'
 import ShowTimes from './ShowTimes'
 import Loading from './Loading'
 
@@ -9,11 +10,21 @@ class GoingHome extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: null
+      data: null,
+      homeStop: "4125",
+      townStop: "5515",
+      userId: undefined,
+      serviceId: "14"
     }
   }
 
   componentWillMount() {
+    fb.isLoggedIn((data) => {
+      console.log('callback agogo', data)
+    })
+    // is user logged in?
+    // If so, get userData
+
     api.getData('to-home', (toTownData) => {
       let allServices = toTownData.Services
       let onlyMyServices = allServices.filter((service) => {
