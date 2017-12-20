@@ -124,7 +124,10 @@ form {
     flex-direction: column;
     align-items: center;
     justify-content: center; }
-    form label input {
+  form button {
+    padding: 0.5em;
+    margin: 0.5em auto; }
+    form button input {
       margin: 0.7em 0 0; }
 
 .login-buttons {

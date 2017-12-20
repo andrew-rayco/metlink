@@ -16,6 +16,10 @@ class EditStop extends React.Component {
   }
 
   componentWillMount() {
+    // fb.isLoggedIn((data) => {
+    //   console.log('callback agogo', data)
+    // })
+
     //  Redirect to login page if user not logged in.
     // fb.isLoggedIn()
     //   ? null
@@ -26,25 +30,15 @@ class EditStop extends React.Component {
     //     }
     //   })
 
-    let user = firebase.auth().currentUser
-
-    if (user) {
-      // check if there are currently stops for this user
-      firebase.database().ref(user.uid).once('value')
-        .then((data) => {
-          console.log('data', data.val())
-          let userData = data.val()
-          this.setState({
-            userId: user.uid,
-            homeStop: userData.homeStop,
-            townStop: userData.townStop,
-            serviceId: userData.serviceId || '14'
-          })
-        })
-        .catch((e) => {
-          console.log(e.message)
-        })
-    }
+    fb.getUserData((userData) => {
+      console.log(userData)
+      this.setState({
+        userId: userData.uid,
+        homeStop: userData.homeStop,
+        townStop: userData.townStop,
+        serviceId: userData.serviceId || '14'
+      })
+    })
   }
 
   handleChange(e) {
@@ -54,24 +48,30 @@ class EditStop extends React.Component {
   }
 
   handleClick(e) {
-    e.preventDefault()
-    console.log(e.target.id)
-    console.log(this.state[e.target.id])
+    // e.preventDefault()
+    // console.log(e.target.id)
+    // console.log(this.state[e.target.id])
+    let postData = {
+      [e.target.id]: this.state[e.target.id]
+    }
+
+    firebase.database().ref(this.state.userId).update(postData)
   }
 
   render() {
+    console.log(this.state)
     return (
       <form>
         <label htmlFor="homeStop">
           Home stop #
           <input id="homeStop" type="number" value={this.state.homeStop} onChange={this.handleChange}/>
-          <input onClick={this.handleClick} type="submit" id="homeStop" value="Update" />
         </label>
+        <button onClick={this.handleClick} id="homeStop">Update Home Stop</button>
         <label htmlFor="townStop">
           Town stop #
           <input id="townStop" type="number" value={this.state.townStop} onChange={this.handleChange}/>
-          <input type="submit" id="townStop" value="Update" />
         </label>
+        <button onClick={this.handleClick} id="townStop">Update Town Stop</button>
         <Link to="/login">Login</Link>
       </form>
     )
