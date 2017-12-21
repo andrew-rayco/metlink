@@ -6,11 +6,13 @@ let url = 'https://www.metlink.org.nz/api/v1/StopDepartures/'
 
 router.post('/to-town', function (req, res) {
   console.log('req', req.body)
+  let homeStop = req.body.homeStop
   request
-    .get(url + '4125')
+    .get(url + homeStop)
     .end((err, result) => {
       if (err) {
         console.log('oh no! Error!:', err)
+        res.json({ error: err })
       } else {
         res.json(result.body)
       }

@@ -5,7 +5,8 @@ var bodyParser = require('body-parser')
 
 var app = express()
 
-app.use(bodyParser.urlencoded({ extended: true }))
+// app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 
 app.use('/api-v1', routes)
 app.use(express.static(path.join(__dirname, '/public')))

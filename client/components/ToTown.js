@@ -10,14 +10,23 @@ class ToTown extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: null
+      data: null,
+      homeStop: "4125",
+      townStop: "5515",
+      userId: undefined,
+      serviceId: "14"
     }
   }
 
   componentWillMount() {
     fb.getUserData((userData) => {
       console.log('userData', userData)
-      api.getData('to-town', (toTownData) => {
+      let payload = {
+        serviceId: userData.ServiceId,
+        homeStop: userData.homeStop,
+        townStop: userData.townStop
+      }
+      api.getData('to-town', payload, (toTownData) => {
         this.setState({ data: toTownData })
       })
     })

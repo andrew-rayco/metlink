@@ -43,11 +43,17 @@ class EditStop extends React.Component {
   }
 
   handleClick(e) {
+    e.preventDefault()
     let postData = {
       [e.target.id]: this.state[e.target.id]
     }
 
-    firebase.database().ref(this.state.userId).update(postData)
+    let updateDb = new Promise(firebase.database().ref(this.state.userId).update(postData))
+
+    console.log(updateDb)
+    updateDb.then((data) => {
+      console.log('I cannot believe that worked!', data);
+    })
   }
 
   render() {
