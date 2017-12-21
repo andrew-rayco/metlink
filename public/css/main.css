@@ -67,33 +67,29 @@ h4 {
 .departure-point {
   animation: fadein 1s cubic-bezier(0.215, 0.61, 0.355, 1); }
 
-button,
-form input[type="submit"] {
+button {
   padding: 1em;
   background-color: #00364a;
   border: 2px solid #00364a;
   font-size: 1em;
   color: #e5e5e5;
   transition: background-color 0.4s, border 0.4s; }
-  button a,
-  form input[type="submit"] a {
+  button a {
     color: #00364a; }
-  button:hover,
-  form input[type="submit"]:hover {
+  button:hover {
     background-color: #c4db0d;
     border: 2px solid #c4db0d;
     color: #00364a;
     transition: background-color 0.4s, border 0.4s;
     cursor: pointer; }
-    button:hover:active,
-    form input[type="submit"]:hover:active {
+    button:hover:active {
       border: 2px solid #00364a; }
 
-.opposite-button {
+.opposite-buttonf {
   background-color: #c4db0d;
   border: 2px solid #c4db0d;
   color: #00364a; }
-  .opposite-button:hover {
+  .opposite-buttonf:hover {
     background-color: #00364a;
     border: 2px solid #00364a;
     color: #c4db0d; }
@@ -127,8 +123,9 @@ form {
   form button {
     padding: 0.5em;
     margin: 0.5em auto; }
-    form button input {
-      margin: 0.7em 0 0; }
+  form input {
+    margin: 0.7em 0 0;
+    max-width: 20%; }
 
 .login-buttons {
   display: flex;

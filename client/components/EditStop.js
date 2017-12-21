@@ -48,7 +48,9 @@ class EditStop extends React.Component {
       [e.target.id]: this.state[e.target.id]
     }
 
-    let updateDb = new Promise(firebase.database().ref(this.state.userId).update(postData))
+    let updateDb = new Promise((resolve, reject) => {
+      firebase.database().ref(this.state.userId).update(postData)
+    })
 
     console.log(updateDb)
     updateDb.then((data) => {
@@ -59,16 +61,14 @@ class EditStop extends React.Component {
   render() {
     return (
       <form>
-        <label htmlFor="homeStop">
-          Home stop #
-          <input name="homeStop" type="number" value={this.state.homeStop} onChange={this.handleChange} />
-        </label>
+        <label htmlFor="homeStop">Home stop #</label>
+        <input name="homeStop" type="number" value={this.state.homeStop} onChange={this.handleChange} />
         <button onClick={this.handleClick} id="homeStop">Update Home Stop</button>
-        <label htmlFor="townStop">
-          Town stop #
-          <input name="townStop" type="number" value={this.state.townStop} onChange={this.handleChange}/>
-        </label>
+
+        <label htmlFor="townStop">Town stop #</label>
+        <input name="townStop" type="number" value={this.state.townStop} onChange={this.handleChange}/>
         <button onClick={this.handleClick} id="townStop">Update Town Stop</button>
+        
         <Link to="/login">Login</Link>
       </form>
     )
