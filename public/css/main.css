@@ -41,6 +41,8 @@ h4 {
     margin-right: .5em;
     min-width: 40px;
     max-width: 50px; }
+  .header a {
+    text-decoration: none; }
 
 .expected {
   font-size: 200%;
@@ -65,12 +67,24 @@ h4 {
 .departure-point {
   animation: fadein 1s cubic-bezier(0.215, 0.61, 0.355, 1); }
 
+.message {
+  position: relative;
+  min-height: 4em; }
+  .message .danger {
+    max-height: 2em;
+    position: absolute;
+    left: 20%;
+    right: 20%;
+    top: 20%;
+    bottom: 20%;
+    color: #006DB2; }
+
 button {
   padding: 1em;
+  background-color: #00364a;
   border: 2px solid #00364a;
   font-size: 1em;
   color: #e5e5e5;
-  background-color: #00364a;
   transition: background-color 0.4s, border 0.4s; }
   button a {
     color: #00364a; }
@@ -82,6 +96,15 @@ button {
     cursor: pointer; }
     button:hover:active {
       border: 2px solid #00364a; }
+
+.opposite-buttonf {
+  background-color: #c4db0d;
+  border: 2px solid #c4db0d;
+  color: #00364a; }
+  .opposite-buttonf:hover {
+    background-color: #00364a;
+    border: 2px solid #00364a;
+    color: #c4db0d; }
 
 @media (max-width: 500px) {
   h1 {
@@ -99,6 +122,48 @@ button {
       margin-right: 0;
       margin-top: .5em; } }
 
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0; }
+  form label {
+    margin-top: 3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0; }
+  form button {
+    padding: 0.5em;
+    margin: 0.5em auto 2em; }
+  form input {
+    margin: 0.7em 0 0;
+    max-width: 20%;
+    height: 1em;
+    padding: .5em;
+    font-size: inherit; }
+
+.login-buttons {
+  display: flex;
+  max-width: 20%;
+  margin: 0 auto; }
+  .login-buttons button {
+    padding: 0.5em;
+    margin: 0.5em auto; }
+
+.user button {
+  padding: 0.5em;
+  margin: 0.5em auto; }
+
+.loading {
+  margin-top: 2em; }
+
+.user-links {
+  display: flex;
+  flex-direction: column; }
+  .user-links a {
+    margin-bottom: 0.5em; }
+
 @keyframes fadein {
   0% {
     opacity: 0;
@@ -112,6 +177,3 @@ button {
     margin-top: 3em; }
   100% {
     margin-top: 2em; } }
-
-.loading {
-  margin-top: 2em; }

@@ -16,11 +16,8 @@ body
   font-size: 20px
 
 h1
-  // margin-top:
   color: $backgroundColor
   font-size: 42px
-  // text-align: center
-  // padding: 1em
 
   span
     color: $highlightColor
@@ -55,6 +52,9 @@ h4
     min-width: 40px
     max-width: 50px
 
+  a
+    text-decoration: none
+
 .expected
   font-size: 200%
   background-color: $highlightColor
@@ -81,15 +81,29 @@ h4
 .departure-point
   animation: fadein 1s cubic-bezier(0.215, 0.610, 0.355, 1.000)
 
+// User management messages
+.message
+  position: relative
+  min-height: 4em
+
+  .danger
+    max-height: 2em
+    position: absolute
+    left: 20%
+    right: 20%
+    top: 20%
+    bottom: 20%
+    color: $headingColor
+
 
 // Button
 
 button
   padding: 1em
+  background-color: $navyBlue
   border: 2px solid $navyBlue
   font-size: 1em
   color: $backgroundColor
-  background-color: $navyBlue
   transition: background-color 0.4s, border 0.4s
 
   a
@@ -104,6 +118,16 @@ button
 
     &:active
       border: 2px solid $navyBlue
+
+.opposite-buttonf
+  background-color: $highlightColor
+  border: 2px solid $highlightColor
+  color: $navyBlue
+
+  &:hover
+    background-color: $navyBlue
+    border: 2px solid $navyBlue
+    color: $highlightColor
 
 
 // Media queries
@@ -129,6 +153,55 @@ button
       margin-right: 0
       margin-top: .5em
 
+form
+  display: flex
+  flex-direction: column
+  margin-top: 0
+
+  label
+    margin-top: 3em
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    margin: 0
+
+  button
+    padding: 0.5em
+    margin: 0.5em auto 2em
+
+  input
+    margin: 0.7em 0 0
+    max-width: 20%
+    height: 1em
+    padding: .5em
+    font-size: inherit
+
+.login-buttons
+  display: flex
+  // flex-direction: column
+  max-width: 20%
+  margin: 0 auto
+
+  button
+    padding: 0.5em
+    margin: 0.5em auto
+
+.user
+  button
+    padding: 0.5em
+    margin: 0.5em auto
+
+
+.loading
+  margin-top: 2em
+
+.user-links
+  display: flex
+  flex-direction: column
+
+  a
+    margin-bottom: 0.5em
 
 // Keyframes
 
@@ -147,6 +220,3 @@ button
     margin-top: 3em
   100%
     margin-top: 2em
-
-.loading
-  margin-top: 2em

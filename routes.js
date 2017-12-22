@@ -2,24 +2,30 @@ let express = require('express')
 let router = express.Router()
 let request = require('superagent')
 
-router.get('/to-town', function (req, res) {
+let url = 'https://www.metlink.org.nz/api/v1/StopDepartures/'
+
+router.post('/to-town', function (req, res) {
+  let homeStop = req.body.homeStop
   request
-    .get('https://www.metlink.org.nz/api/v1/StopDepartures/4125')
+    .get(url + homeStop)
     .end((err, result) => {
       if (err) {
         console.log('oh no! Error!:', err)
+        res.json({ error: err })
       } else {
         res.json(result.body)
       }
     })
 })
 
-router.get('/to-home', function (req, res) {
+router.post('/to-home', function (req, res) {
+  let townStop = req.body.townStop
   request
-    .get('https://www.metlink.org.nz/api/v1/StopDepartures/5515')
+    .get(url + townStop)
     .end((err, result) => {
       if (err) {
         console.log('oh no! Error!:', err)
+        res.json({ error: err })
       } else {
         res.json(result.body)
       }

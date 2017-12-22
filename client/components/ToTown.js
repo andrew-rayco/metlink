@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import * as api from '../api'
+import * as fb from '../helpers/firebase-helpers'
 import ShowTimes from './ShowTimes'
 import Loading from './Loading'
 
@@ -9,13 +10,33 @@ class ToTown extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: null
+      data: null,
+      homeStop: "4125",
+      townStop: "5515",
+      userId: undefined,
+      serviceId: "14"
     }
   }
 
   componentWillMount() {
-    api.getData('to-town', (toTownData) => {
-      this.setState({ data: toTownData })
+    fb.getUserData((userData) => {
+      let payload
+      if (!userData.error) {
+        payload = {
+          serviceId: userData.ServiceId,
+          homeStop: userData.homeStop,
+          townStop: userData.townStop
+        }
+      } else {
+        payload = {
+          serviceId: '14',
+          homeStop: '4125',
+          townStop: '5515'
+        }
+      }
+      api.getData('to-town', payload, (toTownData) => {
+        this.setState({ data: toTownData })
+      })
     })
   }
 

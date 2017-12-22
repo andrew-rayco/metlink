@@ -41,7 +41,11 @@ class ShowTimes extends React.Component {
   countDown() {
     // Remove one second, set state so a re-render happens.
     let seconds = this.state.seconds - 1;
-    this.setState({time: this.secondsToTime(seconds), seconds: seconds});
+
+    // ref is used to avoid React error: 'Can only update a mounted or mounting component'
+    if (this.refs.myRef) {
+      this.setState({time: this.secondsToTime(seconds), seconds: seconds});
+    }
 
     // Check if we're at zero.
     if (seconds == 0) {
@@ -53,7 +57,8 @@ class ShowTimes extends React.Component {
     let stop = this.props.data.Stop
     let servicesArray = this.props.data.Services
     return (
-      <div>
+      // ref is used to avoid React error: 'Can only update a mounted or mounting component'
+      <div ref="myRef">
         {this.startTimer()}
         <div className="service-details departure-point">
           <h4>Leaving from</h4>

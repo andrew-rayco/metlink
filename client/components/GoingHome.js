@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import * as api from '../api'
+import * as fb from '../helpers/firebase-helpers'
 import ShowTimes from './ShowTimes'
 import Loading from './Loading'
 
@@ -9,24 +10,39 @@ class GoingHome extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: null
+      data: null,
+      homeStop: "4125",
+      townStop: "5515",
+      userId: undefined,
+      serviceId: "14"
     }
   }
 
   componentWillMount() {
-    api.getData('to-home', (toTownData) => {
-      let allServices = toTownData.Services
-      let onlyMyServices = allServices.filter((service) => {
-        return service.ServiceID == "14"
+    fb.getUserData((userData) => {
+      let payload
+      if (!userData.error) {
+        payload = {
+          serviceId: userData.ServiceId,
+          homeStop: userData.homeStop,
+          townStop: userData.townStop
+        }
+      } else {
+        payload = {
+          serviceId: '14',
+          homeStop: '4125',
+          townStop: '5515'
+        }
+      }
+      api.getData('to-home', payload, (toHomeData) => {
+        this.setState({ data: toHomeData })
       })
-      toTownData.Services = onlyMyServices
-      this.setState({ data: toTownData })
     })
   }
 
   render() {
     return (
-      <div className="to-town">
+      <div className="to-home">
         <h2>Going Home</h2>
         <Link to="/"><button>Wait... I want to go into town</button></Link>
         <div>
