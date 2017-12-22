@@ -19,8 +19,12 @@ export function getUserData(callback) {
           callback(userData)
         })
         .catch((e) => {
+          callback(e.message)
           console.log(e.message)
         })
+    } else {
+      callback({ error: 'no user' })
+      console.log('there is no user')
     }
   })
 }
