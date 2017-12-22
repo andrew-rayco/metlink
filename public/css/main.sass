@@ -16,11 +16,8 @@ body
   font-size: 20px
 
 h1
-  // margin-top:
   color: $backgroundColor
   font-size: 42px
-  // text-align: center
-  // padding: 1em
 
   span
     color: $highlightColor
@@ -83,6 +80,20 @@ h4
 
 .departure-point
   animation: fadein 1s cubic-bezier(0.215, 0.610, 0.355, 1.000)
+
+// User management messages
+.message
+  position: relative
+  min-height: 2em
+
+  .danger
+    max-height: 2em
+    position: absolute
+    left: 20%
+    right: 20%
+    top: 20%
+    bottom: 20%
+    color: $headingColor
 
 
 // Button
