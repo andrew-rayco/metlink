@@ -20,10 +20,19 @@ class GoingHome extends React.Component {
 
   componentWillMount() {
     fb.getUserData((userData) => {
-      let payload = {
-        serviceId: userData.ServiceId,
-        homeStop: userData.homeStop,
-        townStop: userData.townStop
+      let payload
+      if (!userData.error) {
+        payload = {
+          serviceId: userData.ServiceId,
+          homeStop: userData.homeStop,
+          townStop: userData.townStop
+        }
+      } else {
+        payload = {
+          serviceId: '14',
+          homeStop: '4125',
+          townStop: '5515'
+        }
       }
       api.getData('to-home', payload, (toHomeData) => {
         this.setState({ data: toHomeData })

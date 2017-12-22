@@ -33,10 +33,10 @@ class ToTown extends React.Component {
           homeStop: '4125',
           townStop: '5515'
         }
-        api.getData('to-town', payload, (toTownData) => {
-          this.setState({ data: toTownData })
-        })
       }
+      api.getData('to-town', payload, (toTownData) => {
+        this.setState({ data: toTownData })
+      })
     })
   }
 
