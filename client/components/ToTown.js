@@ -20,7 +20,6 @@ class ToTown extends React.Component {
 
   componentWillMount() {
     fb.getUserData((userData) => {
-      console.log('userData', userData)
       let payload = {
         serviceId: userData.ServiceId,
         homeStop: userData.homeStop,
