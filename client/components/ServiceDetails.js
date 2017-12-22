@@ -16,9 +16,7 @@ const ServiceDetails = (props) => {
         <p><TimeAgo date={props.date}/></p>
 
         <h4>Expected time</h4>
-        <p>{moment(props.nextService.ExpectedDeparture).format('h:mm a')}
-          and {moment(props.nextService.ExpectedDeparture).format('ss')}
-          seconds</p>
+        <p>{moment(props.nextService.ExpectedDeparture).format('h:mm a')} and {moment(props.nextService.ExpectedDeparture).format('ss')} seconds</p>
 
         <h4>Following service</h4>
         <p>{props.followingService

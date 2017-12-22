@@ -29,15 +29,6 @@ class GoingHome extends React.Component {
         this.setState({ data: toHomeData })
       })
     })
-
-    // api.getData('to-home', (toHomeData) => {
-    //   let allServices = toHomeData.Services
-    //   let onlyMyServices = allServices.filter((service) => {
-    //     return service.ServiceID == "14"
-    //   })
-    //   toHomeData.Services = onlyMyServices
-    //   this.setState({ data: toHomeData })
-    // })
   }
 
   render() {
