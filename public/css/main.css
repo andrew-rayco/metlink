@@ -69,7 +69,7 @@ h4 {
 
 .message {
   position: relative;
-  min-height: 2em; }
+  min-height: 4em; }
   .message .danger {
     max-height: 2em;
     position: absolute;
@@ -127,17 +127,21 @@ form {
   flex-direction: column;
   margin-top: 0; }
   form label {
-    margin: 1em;
+    margin-top: 3em;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; }
+    justify-content: center;
+    margin: 0; }
   form button {
     padding: 0.5em;
-    margin: 0.5em auto; }
+    margin: 0.5em auto 2em; }
   form input {
     margin: 0.7em 0 0;
-    max-width: 20%; }
+    max-width: 20%;
+    height: 1em;
+    padding: .5em;
+    font-size: inherit; }
 
 .login-buttons {
   display: flex;

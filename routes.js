@@ -5,7 +5,6 @@ let request = require('superagent')
 let url = 'https://www.metlink.org.nz/api/v1/StopDepartures/'
 
 router.post('/to-town', function (req, res) {
-  console.log('req', req.body)
   let homeStop = req.body.homeStop
   request
     .get(url + homeStop)
@@ -19,12 +18,14 @@ router.post('/to-town', function (req, res) {
     })
 })
 
-router.get('/to-home', function (req, res) {
+router.post('/to-home', function (req, res) {
+  let townStop = req.body.townStop
   request
-    .get('https://www.metlink.org.nz/api/v1/StopDepartures/5515')
+    .get(url + townStop)
     .end((err, result) => {
       if (err) {
         console.log('oh no! Error!:', err)
+        res.json({ error: err })
       } else {
         res.json(result.body)
       }
