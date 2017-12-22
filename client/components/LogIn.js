@@ -10,7 +10,9 @@ class LogIn extends React.Component {
       password: '',
       email: '',
       loggedIn: false,
-      message: ''
+      message: '',
+      inputEmail: '',
+      inputPassword: ''
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -36,14 +38,14 @@ class LogIn extends React.Component {
   addRealtimeAuthListener() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        console.log('from the realtime listener', user)
+        // console.log('from the realtime listener', user)
         this.setState({
           email: user.email,
           inputEmail: '',
           inputPassword: '',
           loggedIn: true })
       } else {
-        console.log('from the realtime listener - not logged in')
+        // console.log('from the realtime listener - not logged in')
       }
     })
   }

@@ -12,7 +12,6 @@ export function isLoggedIn(callback) {
 
 export function getUserData(callback) {
   firebase.auth().onAuthStateChanged((user) => {
-    console.log(user)
     if (user) {
       firebase.database().ref(user.uid).once('value')
         .then((data) => {

@@ -7,7 +7,7 @@ import UserLinks from './UserLinks'
 const ServiceDetails = (props) => {
   if (props.nextService) {
     if (!props.nextService.ExpectedDeparture) {
-      console.log(props.nextService)
+      // console.log(props.nextService)
       props.nextService.ExpectedDeparture = props.nextService.DisplayDeparture
     }
     return (
