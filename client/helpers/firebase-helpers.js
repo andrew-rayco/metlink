@@ -1,15 +1,11 @@
-// export function isLoggedIn(callback) {
-//   // return firebase.auth().currentUser
-//   firebase.auth().onAuthStateChanged(user => {
-//     if (user) {
-//       // console.log('from the realtime listener', user)
-//       callback(user)
-//     } else {
-//       callback({ loggedIn: false })
-//       // console.log('from the realtime listener - not logged in')
-//     }
-//   })
-// }
+export function isLoggedIn() {
+  let user = firebase.auth().currentUser
+  if (user) {
+    return true
+  } else {
+    return false
+  }
+}
 
 export function getUserData(callback) {
   firebase.auth().onAuthStateChanged((user) => {
@@ -26,7 +22,6 @@ export function getUserData(callback) {
         })
     } else {
       callback({ loggedIn: false })
-      // console.log('there is no user')
     }
   })
 }

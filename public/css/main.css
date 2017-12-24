@@ -28,7 +28,7 @@ h4 {
   width: 100vw;
   min-height: 100vh;
   max-width: 100%;
-  margin: 0 auto;
+  margin: 0 auto 2em;
   overflow: hidden; }
 
 .header {
@@ -67,6 +67,15 @@ h4 {
 .departure-point {
   animation: fadein 1s cubic-bezier(0.215, 0.61, 0.355, 1); }
 
+.loading {
+  margin-top: 2em; }
+
+.user-links {
+  display: flex;
+  flex-direction: column; }
+  .user-links a {
+    margin-bottom: 0.5em; }
+
 .message {
   position: relative;
   min-height: 4em; }
@@ -97,11 +106,11 @@ button {
     button:hover:active {
       border: 2px solid #00364a; }
 
-.opposite-buttonf {
+.opposite-button {
   background-color: #c4db0d;
   border: 2px solid #c4db0d;
   color: #00364a; }
-  .opposite-buttonf:hover {
+  .opposite-button:hover {
     background-color: #00364a;
     border: 2px solid #00364a;
     color: #c4db0d; }
@@ -154,15 +163,6 @@ form {
 .user button {
   padding: 0.5em;
   margin: 0.5em auto; }
-
-.loading {
-  margin-top: 2em; }
-
-.user-links {
-  display: flex;
-  flex-direction: column; }
-  .user-links a {
-    margin-bottom: 0.5em; }
 
 @keyframes fadein {
   0% {
