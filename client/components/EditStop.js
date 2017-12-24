@@ -16,23 +16,23 @@ class EditStop extends React.Component {
   }
 
   componentWillMount() {
-    //  Redirect to login page if user not logged in.
-    // fb.isLoggedIn(() => {})
-    //   ? null
-    //   : this.props.history.push({
-    //     pathname: '/login',
-    //     state: {
-    //       message: 'You need to be logged in to do that'
-    //     }
-    //   })
-
     fb.getUserData((userData) => {
-      this.setState({
-        userId: userData.userId,
-        homeStop: userData.homeStop,
-        townStop: userData.townStop,
-        serviceId: userData.serviceId || '14'
-      })
+      if (userData.loggedIn) {
+        this.setState({
+          userId: userData.userId,
+          homeStop: userData.homeStop,
+          townStop: userData.townStop,
+          serviceId: userData.serviceId || '14'
+        })
+      } else {
+        //  Redirect to login page if user not logged in.
+        this.props.history.push({
+          pathname: '/login',
+          state: {
+            message: 'You need to be logged in to do that'
+          }
+        })
+      }
     })
   }
 

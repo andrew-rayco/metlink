@@ -2,12 +2,9 @@ import React from 'react'
 import TimeAgo from 'react-timeago'
 import moment from 'moment'
 
-import UserLinks from './UserLinks'
-
 const ServiceDetails = (props) => {
   if (props.nextService) {
     if (!props.nextService.ExpectedDeparture) {
-      // console.log(props.nextService)
       props.nextService.ExpectedDeparture = props.nextService.DisplayDeparture
     }
     return (
@@ -22,7 +19,6 @@ const ServiceDetails = (props) => {
         <p>{props.followingService
             ? moment(props.followingService.ExpectedDeparture).format('h:mm a')
             : 'None expected yet'}</p>
-        <UserLinks />
       </div>
 
     )

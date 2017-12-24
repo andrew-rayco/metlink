@@ -5,6 +5,7 @@ import * as api from '../api'
 import * as fb from '../helpers/firebase-helpers'
 import ShowTimes from './ShowTimes'
 import Loading from './Loading'
+import UserLinks from './UserLinks'
 
 class ToTown extends React.Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class ToTown extends React.Component {
   componentWillMount() {
     fb.getUserData((userData) => {
       let payload
-      if (!userData.error) {
+      if (userData.loggedIn) {
         payload = {
           serviceId: userData.ServiceId,
           homeStop: userData.homeStop,
@@ -48,6 +49,7 @@ class ToTown extends React.Component {
         <div>
           {this.state.data ? <ShowTimes data={this.state.data} /> : <Loading />}
         </div>
+        <UserLinks />
       </div>
     )
   }
