@@ -37,7 +37,7 @@ h4
   width: 100vw
   min-height: 100vh
   max-width: 100%
-  margin: 0 auto
+  margin: 0 auto 2em
   overflow: hidden
 
 .header
@@ -81,6 +81,16 @@ h4
 .departure-point
   animation: fadein 1s cubic-bezier(0.215, 0.610, 0.355, 1.000)
 
+.loading
+  margin-top: 2em
+
+.user-links
+  display: flex
+  flex-direction: column
+
+  a
+    margin-bottom: 0.5em
+
 // User management messages
 .message
   position: relative
@@ -119,7 +129,7 @@ button
     &:active
       border: 2px solid $navyBlue
 
-.opposite-buttonf
+.opposite-button
   background-color: $highlightColor
   border: 2px solid $highlightColor
   color: $navyBlue
@@ -152,6 +162,8 @@ button
     img
       margin-right: 0
       margin-top: .5em
+
+// Form
 
 form
   display: flex
@@ -192,16 +204,6 @@ form
     padding: 0.5em
     margin: 0.5em auto
 
-
-.loading
-  margin-top: 2em
-
-.user-links
-  display: flex
-  flex-direction: column
-
-  a
-    margin-bottom: 0.5em
 
 // Keyframes
 
