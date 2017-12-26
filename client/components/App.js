@@ -12,7 +12,7 @@ import GoingHome from './GoingHome'
 import EditStop from './EditStop'
 import LogIn from './LogIn'
 
-function App (props) {
+function App () {
   return (
     <Router>
       <div className="container">

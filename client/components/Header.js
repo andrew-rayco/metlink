@@ -6,7 +6,6 @@ function Header (props) {
     <div className="header">
       <Link to="/"><img src="/img/bus-icon.svg" alt="bus icon"/></Link>
       <Link to="/"><h1>Sexy Met<span>link</span> App</h1></Link>
-
     </div>
   )
 }
