@@ -48,13 +48,13 @@ class EditStop extends React.Component {
       [e.target.id]: this.state[e.target.id]
     }
 
+    // eslint-disable-next-line no-undef
     firebase.database().ref(this.state.userId).update(postData)
       .then(() => {
-        console.log('data saved successfully')
         this.setState({ message: 'Successfully updated' })
       })
       .catch((e) => {
-        console.log('data could not be saved.', e)
+        this.setState({ message: e })
       })
   }
 
