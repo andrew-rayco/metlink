@@ -8,7 +8,9 @@
     "webpack": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-css": "node-sass -o public/css public/css",
-    "watch-css": "nodemon -e sass -x \"npm run build-css\""
+    "watch-css": "nodemon -e sass -x \"npm run build-css\"",
+    "eslint": "eslint",
+    "eslint_all": "eslint . --ext .js || true"
   },
   "repository": {
     "type": "git",
@@ -40,6 +42,8 @@
     "webpack": "^3.8.1"
   },
   "devDependencies": {
+    "eslint": "^4.15.0",
+    "eslint-plugin-react": "^7.5.1",
     "node-sass": "^4.7.2",
     "nodemon": "^1.12.1"
   }

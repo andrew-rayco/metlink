@@ -12,10 +12,10 @@ class GoingHome extends React.Component {
     super(props)
     this.state = {
       data: null,
-      homeStop: "4125",
-      townStop: "5515",
+      homeStop: '4125',
+      townStop: '5515',
       userId: undefined,
-      serviceId: "14"
+      serviceId: '14'
     }
   }
 

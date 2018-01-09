@@ -10,7 +10,6 @@ router.post('/to-town', function (req, res) {
     .get(url + homeStop)
     .end((err, result) => {
       if (err) {
-        console.log('oh no! Error!:', err)
         res.json({ error: err })
       } else {
         res.json(result.body)
@@ -24,7 +23,6 @@ router.post('/to-home', function (req, res) {
     .get(url + townStop)
     .end((err, result) => {
       if (err) {
-        console.log('oh no! Error!:', err)
         res.json({ error: err })
       } else {
         res.json(result.body)

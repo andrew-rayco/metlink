@@ -1,5 +1,5 @@
 export function isLoggedIn() {
-  let user = firebase.auth().currentUser
+  let user = firebase.auth().currentUser // eslint-disable-line no-undef
   if (user) {
     return true
   } else {
@@ -8,8 +8,10 @@ export function isLoggedIn() {
 }
 
 export function getUserData(callback) {
+  // eslint-disable-next-line no-undef
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
+      // eslint-disable-next-line no-undef
       firebase.database().ref(user.uid).once('value')
         .then((data) => {
           let userData = data.val()
@@ -18,7 +20,6 @@ export function getUserData(callback) {
         })
         .catch((e) => {
           callback(e.message)
-          console.log(e.message)
         })
     } else {
       callback({ loggedIn: false })

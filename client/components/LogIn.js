@@ -36,6 +36,7 @@ class LogIn extends React.Component {
 
   // Add a realtime listener
   addRealtimeAuthListener() {
+    // eslint-disable-next-line no-undef
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         // console.log('from the realtime listener', user)
@@ -54,7 +55,7 @@ class LogIn extends React.Component {
     // Get email and pass
     const email = this.state.inputEmail
     const pass = this.state.inputPassword
-    const auth = firebase.auth()
+    const auth = firebase.auth() // eslint-disable-line no-undef
     // Sign in
     const promise = auth.signInWithEmailAndPassword(email, pass)
     promise
@@ -67,12 +68,12 @@ class LogIn extends React.Component {
     // TODO: Check for real email
     const email = this.state.inputEmail
     const pass = this.state.inputPassword
-    const auth = firebase.auth()
+    const auth = firebase.auth() // eslint-disable-line no-undef
     // Sign in
     const promise = auth.createUserWithEmailAndPassword(email, pass)
     promise
       .then(user => {
-        firebase.database().ref(user.uid).set({
+        firebase.database().ref(user.uid).set({ // eslint-disable-line no-undef
           userId: user.uid,
           homeStop: '4125',
           townStop: '5515',
@@ -91,7 +92,7 @@ class LogIn extends React.Component {
       message: '',
       loggedIn: false
     })
-    firebase.auth().signOut()
+    firebase.auth().signOut() // eslint-disable-line no-undef
   }
 
 
@@ -101,41 +102,43 @@ class LogIn extends React.Component {
         <h2>Log in</h2>
 
         {/* Show message if exists */}
-        {this.state.message
-          ? <p className="danger">{this.state.message}</p>
-          : null}
-
-        {/* If logged in show only logged in message and logout button */}
-        {this.state.loggedIn
-          ? <div>
-              <p>Currently logged in as {this.state.email}</p>
-              <button onClick={this.handleLogOut}>Log out</button>
-            </div>
-          : null}
-
-        {/* Only show form if not logged in */}
-        {this.state.loggedIn
-          ? null
-          : <form>
-              <label htmlFor="email">
-                <input id="email" type="email" placeholder="Email" value={this.state.inputEmail} onChange={this.handleChange}/>
-              </label>
-              <label htmlFor="password">
-                <input id="password" type="text" placeholder="Password" value={this.state.inputPassword} onChange={this.handleChange}/>
-              </label>
-            </form>
-          }
-
-        {/* Only show login and signup buttons if not logged in */}
-        {this.state.loggedIn
-          ? null
-          : <div className="login-buttons">
-              <button className="opposite-button" onClick={this.handleSignUp}>Sign Up</button>
-              <button onClick={this.handleLogIn}>Log in</button>
-            </div>
+        {this.state.message ?
+          <p className="danger">{this.state.message}</p>
+          : null
         }
 
-      <Link to="/edit">Edit stops</Link>
+        {/* If logged in show only logged in message and logout button */}
+        {this.state.loggedIn ?
+          <div>
+            <p>Currently logged in as {this.state.email}</p>
+            <button onClick={this.handleLogOut}>Log out</button>
+          </div>
+          : null
+        }
+
+        {/* Only show form if not logged in */}
+        {this.state.loggedIn ?
+          null :
+          <form>
+            <label htmlFor="email">
+              <input id="email" type="email" placeholder="Email" value={this.state.inputEmail} onChange={this.handleChange}/>
+            </label>
+            <label htmlFor="password">
+              <input id="password" type="text" placeholder="Password" value={this.state.inputPassword} onChange={this.handleChange}/>
+            </label>
+          </form>
+        }
+
+        {/* Only show login and signup buttons if not logged in */}
+        {this.state.loggedIn ?
+          null :
+          <div className="login-buttons">
+            <button className="opposite-button" onClick={this.handleSignUp}>Sign Up</button>
+            <button onClick={this.handleLogIn}>Log in</button>
+          </div>
+        }
+
+        <Link to="/edit">Edit stops</Link>
 
       </div>
 
