@@ -7,15 +7,17 @@ import ShowTimes from './ShowTimes'
 import Loading from './Loading'
 import UserLinks from './UserLinks'
 
+import { serviceId, homeStop, townStop } from '../config'
+
 class ToTown extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       data: null,
-      homeStop: '4125',
-      townStop: '5515',
+      homeStop: homeStop,
+      townStop: townStop,
       userId: undefined,
-      serviceId: '14'
+      serviceId: serviceId
     }
   }
 
@@ -30,9 +32,9 @@ class ToTown extends React.Component {
         }
       } else {
         payload = {
-          serviceId: '14',
-          homeStop: '4125',
-          townStop: '5515'
+          serviceId: serviceId,
+          homeStop: homeStop,
+          townStop: townStop
         }
       }
       api.getData('to-town', payload, (toTownData) => {

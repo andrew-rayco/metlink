@@ -3,6 +3,8 @@ import React from 'react'
 import CountDown from './CountDown'
 import ServiceDetails from './ServiceDetails'
 
+import { serviceId } from '../config'
+
 class ShowTimes extends React.Component {
   constructor(props) {
     super(props)
@@ -53,9 +55,21 @@ class ShowTimes extends React.Component {
     }
   }
 
+  findFollowingService(services) {
+    // if no following realtime services on selected route, display scheduled services (if any)
+    const thisRoute = services.filter(service => service.ServiceID === serviceId)
+    if (thisRoute[0].IsRealtime === false && thisRoute.length > 1) {
+      return thisRoute[1]
+    }
+    return thisRoute[0]
+  }
+
   render() {
     let stop = this.props.data.Stop
     let servicesArray = this.props.data.Services
+    let realTimeServices = servicesArray.filter(service => service.IsRealtime === true && service.ServiceID === serviceId)
+    const followingService = this.findFollowingService(servicesArray)
+    console.log(followingService);
     return (
       // ref is used to avoid React error: 'Can only update a mounted or mounting component'
       <div ref="myRef">
@@ -67,8 +81,8 @@ class ShowTimes extends React.Component {
         <CountDown min={this.state.time.m} sec={this.state.time.s} />
         <ServiceDetails
           date={this.props.data.LastModified}
-          nextService={servicesArray[0]}
-          followingService={servicesArray[1]}
+          nextService={realTimeServices[0]}
+          followingService={followingService}
         />
       </div>
     )

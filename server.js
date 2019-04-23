@@ -11,7 +11,7 @@ app.use(bodyParser.json())
 app.use('/api-v1', routes)
 app.use(express.static(path.join(__dirname, '/public')))
 
-let PORT = process.env.PORT || 3000
+let PORT = process.env.PORT || 8888
 
 app.listen(PORT, () => {
   console.log('listening to this joint on port', PORT) // eslint-disable-line no-console
