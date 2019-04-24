@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon server.js & webpack --watch & npm run watch-css",
     "webpack": "webpack",
-    "test": "jest",
+    "test": "jest --watchAll --verbose",
     "build-css": "node-sass -o public/css public/css",
     "watch-css": "nodemon -e sass -x \"npm run build-css\"",
     "eslint": "eslint",
@@ -44,6 +44,8 @@
     "@babel/preset-react": "^7.0.0",
     "babel-jest": "^24.7.1",
     "babel-loader": "^8.0.5",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
     "eslint": "^4.15.0",
     "eslint-plugin-react": "^7.5.1",
     "jest": "^24.7.1",

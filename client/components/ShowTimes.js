@@ -58,6 +58,7 @@ class ShowTimes extends React.Component {
   findFollowingService(services) {
     // if no following realtime services on selected route, display scheduled services (if any)
     const thisRoute = services.filter(service => service.ServiceID === serviceId)
+    if (thisRoute.length < 1) return {}
     if (thisRoute[0].IsRealtime === false && thisRoute.length > 1) {
       return thisRoute[1]
     }
@@ -69,7 +70,6 @@ class ShowTimes extends React.Component {
     let servicesArray = this.props.data.Services
     let realTimeServices = servicesArray.filter(service => service.IsRealtime === true && service.ServiceID === serviceId)
     const followingService = this.findFollowingService(servicesArray)
-    console.log(followingService);
     return (
       // ref is used to avoid React error: 'Can only update a mounted or mounting component'
       <div ref="myRef">

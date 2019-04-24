@@ -16,8 +16,8 @@ const ServiceDetails = (props) => {
         <p>{moment(props.nextService.ExpectedDeparture).format('h:mm a')} and {moment(props.nextService.ExpectedDeparture).format('ss')} seconds</p>
 
         <h4>Following service</h4>
-        <p>{
-          props.followingService ?
+        <p data-test="following-content">{
+          Object.keys(props.followingService).length > 0 ?
             moment(props.followingService.ExpectedDeparture).format('h:mm a')
             : 'None expected yet'}</p>
       </div>
