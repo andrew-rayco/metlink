@@ -36,7 +36,7 @@ const nextService = {
     "Link": "/timetables/bus/14"
   }
 }
-const followingService = {
+const followingServices = {
   "ServiceID": "14",
   "IsRealtime": true,
   "VehicleRef": "3041",
@@ -63,33 +63,35 @@ const followingService = {
 }
 
 describe('ServiceDetails component', () => {
-  test('Displays `following service` if passsed followingService', () => {
+  test('Displays correct `following service` if passed followingServices', () => {
     const wrapper = shallow(
       <ServiceDetails
         date={date}
         nextService={nextService}
-        followingService={followingService}
+        followingServices={followingServices}
       />
     )
+
     const appComponent = findByTestAttr(wrapper, 'following-content')
     expect(
       appComponent.text()
-    ).toEqual('2:39 pm')
+    ).toContain(':')
   })
+
 
   test('Handles missing `following service` with message', () => {
     const wrapper = shallow(
       <ServiceDetails
         date={date}
         nextService={nextService}
-        followingService={{}}
+        followingServices={{}}
       />
     )
+
     const appComponent = findByTestAttr(wrapper, 'following-content')
     expect(
       appComponent.text()
     ).toEqual('None expected yet')
-
   })
 
 })

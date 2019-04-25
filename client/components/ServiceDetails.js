@@ -2,24 +2,35 @@ import React from 'react'
 import TimeAgo from 'react-timeago'
 import moment from 'moment'
 
+import {
+  labelServices,
+  convertTimeHoursMins,
+  convertTimeSeconds
+ } from '../helpers/helpers'
+
 const ServiceDetails = (props) => {
   if (props.nextService) {
-    if (!props.nextService.ExpectedDeparture) {
-      props.nextService.ExpectedDeparture = props.nextService.DisplayDeparture
-    }
+
+    let { ExpectedDeparture, DisplayDeparture } = props.nextService
+
+    if (!ExpectedDeparture) ExpectedDeparture = DisplayDeparture
+
     return (
       <div className="service-details">
         <h4>Last modified</h4>
         <p><TimeAgo date={props.date}/></p>
 
         <h4>Expected time</h4>
-        <p>{moment(props.nextService.ExpectedDeparture).format('h:mm a')} and {moment(props.nextService.ExpectedDeparture).format('ss')} seconds</p>
+        <p>{convertTimeHoursMins(ExpectedDeparture)} and {convertTimeSeconds(ExpectedDeparture)} seconds</p>
 
-        <h4>Following service</h4>
-        <p data-test="following-content">{
-          Object.keys(props.followingService).length > 0 ?
-            moment(props.followingService.ExpectedDeparture).format('h:mm a')
-            : 'None expected yet'}</p>
+        <h4>Following services</h4>
+        <p data-test="following-content">
+          {
+            Object.keys(props.followingServices).length > 0
+            ? labelServices(props.followingServices)
+            : 'None expected yet'
+          }
+        </p>
       </div>
 
     )
