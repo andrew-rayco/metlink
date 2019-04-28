@@ -1,4 +1,6 @@
+import React, { Fragment } from 'react'
 import moment from 'moment'
+
 
 export function labelServices(services) {
   let str = ''
@@ -6,25 +8,31 @@ export function labelServices(services) {
   // If only single object in `services`, Object.keys will repeat
   // single following service 17 times (once for each key in single object).
   // So this:
-  if (services.ServiceID) {
+
+  if (services.ServiceID) {   // Determines if single object (vs services[0].ServiceID)
     if (!services.IsRealtime) {
       return convertTimeHoursMins(services.AimedDeparture)
     } else {
       return convertTimeHoursMins(services.ExpectedDeparture)
     }
   } else {
-    Object.keys(services).forEach(serviceIndex => {
-      if (!services[serviceIndex].IsRealtime && serviceIndex != 0) {
-        const readableDate = convertTimeHoursMins(services[serviceIndex].AimedDeparture)
-        str += `${readableDate} (SCHED), `
-      } else if (serviceIndex != 0) {
-        const readableDate = convertTimeHoursMins(services[serviceIndex].ExpectedDeparture)
-        str += `${readableDate}, `
-      }
-    })
+      str = Object.keys(services).map((index) => {
+        if (index > 0 && services[index].IsRealtime && index < 6) {
+          const readableTime = convertTimeHoursMins(services[index].ExpectedDeparture)
+          return <li key={index}>{readableTime}</li>
+        } else if (index > 0 && !services[index].IsRealtime && index < 6) {
+          const readableTime = convertTimeHoursMins(services[index].AimedDeparture)
+          return <li key={index} className="mute"><em>{readableTime}</em></li>
+        } else {
+          return null
+        }
+      })
   }
 
-  return str
+  // Remove null entries
+  const cleanStr = str.filter(item => item)
+  
+  return cleanStr
 }
 
 export function convertTimeHoursMins(time) {

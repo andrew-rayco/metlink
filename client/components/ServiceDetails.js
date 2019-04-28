@@ -24,13 +24,14 @@ const ServiceDetails = (props) => {
         <p>{convertTimeHoursMins(ExpectedDeparture)} and {convertTimeSeconds(ExpectedDeparture)} seconds</p>
 
         <h4>Following services</h4>
-        <p data-test="following-content">
+        <p className="subtext">Scheduled service in grey. Realtime in black.</p>
+        <ul data-test="following-content">
           {
             Object.keys(props.followingServices).length > 0
             ? labelServices(props.followingServices)
             : 'None expected yet'
           }
-        </p>
+        </ul>
       </div>
 
     )
