@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon server.js & webpack --watch & npm run watch-css",
     "webpack": "webpack",
-    "test": "jest --watchAll --verbose",
+    "test": "jest --watchAll --verbose --coverage",
     "build-css": "node-sass -o public/css public/css",
     "watch-css": "nodemon -e sass -x \"npm run build-css\"",
     "eslint": "eslint",

@@ -1,8 +1,7 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import moment from 'moment'
 
-
-export function labelServices(services) {
+export function findFollowingServices(services) {
   let str = ''
 
   // If only single object in `services`, Object.keys will repeat
@@ -31,7 +30,7 @@ export function labelServices(services) {
 
   // Remove null entries
   const cleanStr = str.filter(item => item)
-  
+
   return cleanStr
 }
 
@@ -41,4 +40,10 @@ export function convertTimeHoursMins(time) {
 
 export function convertTimeSeconds(time) {
   return moment(time).format('ss')
+}
+
+// Testing util
+export const findByTestAttr = (component, attr) => {
+  const wrapper = component.find(`[data-test='${attr}']`)
+  return wrapper
 }
