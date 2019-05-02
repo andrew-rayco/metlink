@@ -6,6 +6,7 @@ import * as fb from '../helpers/firebase-helpers'
 import ShowTimes from './ShowTimes'
 import Loading from './Loading'
 import UserLinks from './UserLinks'
+import Refresh from './Refresh'
 
 import { serviceId, homeStop, townStop } from '../config'
 
@@ -48,6 +49,7 @@ class ToTown extends React.Component {
       <div className="to-town">
         <h2>Going to Town</h2>
         <Link to="/going-home"><button>Wait... I want to go home</button></Link>
+        <Refresh />
         <div>
           {this.state.data ? <ShowTimes data={this.state.data} /> : <Loading />}
         </div>
