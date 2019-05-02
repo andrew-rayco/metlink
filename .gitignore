@@ -60,3 +60,6 @@ typings/
 # Webpack bundle
 bundle*
 main.css
+
+# Jest testing snapshots
+__snapshots__/

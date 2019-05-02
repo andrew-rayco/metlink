@@ -49,102 +49,26 @@ const followingServicesMulti = [
   {
     "ServiceID": "14",
     "IsRealtime": true,
-    "VehicleRef": "1461",
-    "Direction": "Inbound",
-    "OperatorRef": "NBM",
-    "OriginStopID": "4136",
-    "OriginStopName": "Wilton-SurreySt",
-    "DestinationStopID": "6224",
-    "DestinationStopName": "Kilbirnie",
-    "AimedArrival": "2019-04-29T11:07:00+12:00",
     "AimedDeparture": "2019-04-29T11:07:00+12:00",
-    "VehicleFeature": "lowFloor",
-    "DepartureStatus": "delayed",
-    "ExpectedDeparture": "2019-04-29T11:09:39+12:00",
-    "DisplayDeparture": "2019-04-29T11:09:39+12:00",
-    "DisplayDepartureSeconds": 1558,
-    "Service": {
-      "Code": "14",
-      "TrimmedCode": "14",
-      "Name": "Wilton - Wellington - Roseneath - Hataitai - Kilbirnie",
-      "Mode": "Bus",
-      "Link": "/timetables/bus/14"
-    }
+    "ExpectedDeparture": "2019-04-29T11:09:39+12:00"
   },
   {
     "ServiceID": "14",
     "IsRealtime": true,
-    "VehicleRef": "2588",
-    "Direction": "Inbound",
-    "OperatorRef": "NBM",
-    "OriginStopID": "4136",
-    "OriginStopName": "Wilton-SurreySt",
-    "DestinationStopID": "6224",
-    "DestinationStopName": "Kilbirnie",
-    "AimedArrival": "2019-04-29T11:37:00+12:00",
     "AimedDeparture": "2019-04-29T11:37:00+12:00",
-    "VehicleFeature": "lowFloor",
-    "DepartureStatus": "delayed",
-    "ExpectedDeparture": "2019-04-29T11:39:39+12:00",
-    "DisplayDeparture": "2019-04-29T11:39:39+12:00",
-    "DisplayDepartureSeconds": 3358,
-    "Service": {
-      "Code": "14",
-      "TrimmedCode": "14",
-      "Name": "Wilton - Wellington - Roseneath - Hataitai - Kilbirnie",
-      "Mode": "Bus",
-      "Link": "/timetables/bus/14"
-    }
+    "ExpectedDeparture": "2019-04-29T11:39:39+12:00"
   },
   {
     "ServiceID": "14",
     "IsRealtime": false,
-    "VehicleRef": null,
-    "Direction": "Inbound",
-    "OperatorRef": "NBM",
-    "OriginStopID": "4136",
-    "OriginStopName": "Wilton-SurreySt",
-    "DestinationStopID": "6224",
-    "DestinationStopName": "Kilbirnie",
-    "AimedArrival": "2019-04-29T12:07:00+12:00",
     "AimedDeparture": "2019-04-29T12:07:00+12:00",
-    "VehicleFeature": null,
-    "DepartureStatus": null,
-    "ExpectedDeparture": null,
-    "DisplayDeparture": "2019-04-29T12:07:00+12:00",
-    "DisplayDepartureSeconds": 4999,
-    "Service": {
-      "Code": "14",
-      "TrimmedCode": "14",
-      "Name": "Wilton - Wellington - Roseneath - Hataitai - Kilbirnie",
-      "Mode": "Bus",
-      "Link": "/timetables/bus/14"
-    }
+    "ExpectedDeparture": null
   },
   {
     "ServiceID": "14",
     "IsRealtime": false,
-    "VehicleRef": null,
-    "Direction": "Inbound",
-    "OperatorRef": "NBM",
-    "OriginStopID": "4136",
-    "OriginStopName": "Wilton-SurreySt",
-    "DestinationStopID": "6224",
-    "DestinationStopName": "Kilbirnie",
-    "AimedArrival": "2019-04-29T12:37:00+12:00",
     "AimedDeparture": "2019-04-29T12:37:00+12:00",
-    "VehicleFeature": null,
-    "DepartureStatus": null,
-    "ExpectedDeparture": null,
-    "DisplayDeparture": "2019-04-29T12:37:00+12:00",
-    "DisplayDepartureSeconds": 6799,
-    "Service": {
-      "Code": "14",
-      "TrimmedCode": "14",
-      "Name": "Wilton - Wellington - Roseneath - Hataitai - Kilbirnie",
-      "Mode": "Bus",
-      "Link": "/timetables/bus/14"
-    }
+    "ExpectedDeparture": null
   }
 ]
 
@@ -223,7 +147,7 @@ describe('ServiceDetails component', () => {
     )
 
     const appComponent = findByTestAttr(wrapper, 'expected-time')
-    expect(appComponent.text()).toEqual('2:39 pm and 02 seconds')
+    expect(appComponent.text()).toEqual('2:39 pm and 02 seconds (sched)')
   })
 
 })

@@ -10,7 +10,11 @@ import {
 
 const ServiceDetails = (props) => {
   if (props.nextService) {
-    let { ExpectedDeparture, DisplayDeparture } = props.nextService
+    let {
+      ExpectedDeparture,
+      DisplayDeparture,
+      IsRealtime
+     } = props.nextService
 
     if (!ExpectedDeparture) ExpectedDeparture = DisplayDeparture
 
@@ -20,7 +24,7 @@ const ServiceDetails = (props) => {
         <p><TimeAgo date={props.date}/></p>
 
         <h4>Expected time</h4>
-        <p data-test="expected-time">{convertTimeHoursMins(ExpectedDeparture)} and {convertTimeSeconds(ExpectedDeparture)} seconds</p>
+        <p data-test="expected-time">{convertTimeHoursMins(ExpectedDeparture)} and {convertTimeSeconds(ExpectedDeparture)} seconds{IsRealtime ? null : ' (sched)'}</p>
 
         <h4>Following services</h4>
         <p className="subtext">Scheduled service in grey. Realtime in black.</p>
