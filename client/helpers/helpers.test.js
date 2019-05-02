@@ -4,7 +4,8 @@ import moment from 'moment'
 import {
   findFollowingServices,
   convertTimeHoursMins,
-  convertTimeSeconds
+  convertTimeSeconds,
+  findCorrectRoute
 } from './helpers'
 
 const serviceSingle = {
@@ -45,6 +46,29 @@ const serviceSingleScheduled = {
   "AimedDeparture": "2019-04-24T14:37:00+12:00",
   "ExpectedDeparture": "2019-04-24T14:39:02+12:00",
 }
+const rawServices = [
+  {
+    ServiceID: '14'
+  },
+  {
+    ServiceID: '23'
+  },
+  {
+    ServiceID: '42'
+  },
+  {
+    ServiceID: '14'
+  },
+  {
+    ServiceID: '23'
+  },
+  {
+    ServiceID: '48'
+  },
+  {
+    ServiceID: '1'
+  }
+]
 
 describe('helper/util functions', () => {
   test('`convertTimeHoursMins` returns correct time', () => {
@@ -53,6 +77,10 @@ describe('helper/util functions', () => {
 
   test('`convertTimeSeconds` returns correct seconds', () => {
     expect(convertTimeSeconds('2019-04-24T14:39:02+12:00')).toEqual('02')
+  })
+
+  test('`findCorrectRoute` returns only services that match selected route', () => {
+    expect(findCorrectRoute(rawServices, '14').length).toEqual(2)
   })
 })
 

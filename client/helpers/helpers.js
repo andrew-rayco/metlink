@@ -34,6 +34,10 @@ export function findFollowingServices(services) {
   return cleanStr
 }
 
+export function findCorrectRoute(services, routeId) {
+  return services.filter(service => service.ServiceID === routeId)
+}
+
 export function convertTimeHoursMins(time) {
   return moment(time).format('h:mm a')
 }
