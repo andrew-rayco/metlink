@@ -19,7 +19,7 @@ describe('ShowTimes component', () => {
   test('renders', () => {
     const wrapper = shallow(<ShowTimes data={ data } />)
 
-    expect(wrapper.exists()).toBe(true)
+    expect(wrapper).toMatchSnapshot()
   })
 
 })
