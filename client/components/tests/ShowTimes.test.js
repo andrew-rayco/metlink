@@ -1,7 +1,7 @@
 import React from 'react'
 import Enzyme, { shallow, mount } from 'enzyme'
 import EnzymeAdapter from 'enzyme-adapter-react-16'
-import ShowTimes from './ShowTimes'
+import ShowTimes from '../ShowTimes'
 
 Enzyme.configure({ adapter: new EnzymeAdapter() })
 
@@ -47,7 +47,7 @@ describe('ShowTimes component', () => {
 
     test('Handles no services in props', () => {
         const stopOnlyData = {Stop: {Name: 'Sexy stop name'}}
-        const wrapper = mount(<ShowTimes data={stopOnlyData} />)
+        const wrapper = shallow(<ShowTimes data={stopOnlyData} />)
         expect(wrapper.state().seconds).toEqual(9999)
     })
 })

@@ -2,8 +2,8 @@ import React from 'react'
 import Enzyme, { shallow } from 'enzyme'
 import EnzymeAdapter from 'enzyme-adapter-react-16'
 
-import { findByTestAttr } from '../helpers/helpers'
-import ServiceDetails from './ServiceDetails'
+import { findByTestAttr } from '../../helpers/helpers'
+import ServiceDetails from '../ServiceDetails'
 
 Enzyme.configure({ adapter: new EnzymeAdapter() })
 
