@@ -1,13 +1,14 @@
 import React from 'react'
 
-const Refresh = () => {
+const Refresh = (props) => {
   return (
-    <button className='btn-small' onClick={refreshPage}>Refresh</button>
+    <button
+        className='btn-small'
+        onClick={props.fetchData}
+    >
+        Refresh
+    </button>
   )
-}
-
-const refreshPage = () => {
-  window.location.reload()
 }
 
 export default Refresh

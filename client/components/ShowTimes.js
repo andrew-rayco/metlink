@@ -74,7 +74,10 @@ class ShowTimes extends React.Component {
           <h4>Leaving from</h4>
           <p>{stop.Name}</p>
         </div>
-        <CountDown min={this.state.time.m} sec={this.state.time.s} />
+        <CountDown
+            min={this.state.time.m}
+            sec={this.state.time.s}
+        />
         <ServiceDetails
           date={this.props.data.LastModified}
           nextService={realTimeServices[0] || servicesArray[0]}
