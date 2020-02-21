@@ -6,8 +6,8 @@ import ToTown from '../ToTown'
 Enzyme.configure({ adapter: new EnzymeAdapter() })
 
 describe('ToTown component', () => {
-    // test('Renders', () => {
-    //     const wrapper = shallow(<ToTown />)
-    //     expect(wrapper).toMatchSnapshot()
-    // })
+    test('Renders', () => {
+        const wrapper = shallow(<ToTown />)
+        expect(wrapper).toMatchSnapshot()
+    })
 })
