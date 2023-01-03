@@ -34,7 +34,7 @@
     "react-timeago": "^3.4.3",
     "redux": "^3.7.2",
     "superagent": "^3.8.1",
-    "webpack": "^3.8.1"
+    "webpack": "^5.75.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.3",
